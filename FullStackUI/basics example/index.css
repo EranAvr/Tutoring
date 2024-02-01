@@ -1,0 +1,51 @@
+/*
+    Example page for CSS
+*/
+
+/* select all- */
+* {
+    /* define font for the text- */
+    font-family: 'Courier New', Courier, monospace;
+}
+/* select all HTML tags of <p></p> */
+p {
+    color: chartreuse;
+}
+
+/* select all HTML tags with class='classy' */
+.classy {
+    background-color: chocolate;
+}
+
+/* select only HTML tags with id='my_id' */
+#my_id {
+    /* define all propeties at once- */
+    border: solid 5px blue;
+    
+    /* define propeties one by one- */
+    /*
+    border-style: solid;
+    border-width: 5px;
+    border-color: red;
+    */
+
+    /* make round corners- 
+        (we can choose between 1px to 12px)*/
+    border-radius: 12px;
+    
+    content: ;
+}
+
+/* select all <p> tags with  */
+p.para {
+    /* place text in the right-side (end) of the page- */
+    text-align: end;
+}
+
+/* select a group of HTML tags- */
+h1, h3 {
+    /* place text in the middle of the page- */
+    text-align: center;
+    /* define font for the text- */
+    font-family: 'Times New Roman', Times, serif;
+}
