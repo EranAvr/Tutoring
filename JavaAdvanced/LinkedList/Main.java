@@ -39,7 +39,7 @@ public class Main {
         System.out.println(n1);
 
 
-        // Searching for a value in the list-
+        // Searching in the list-
         System.out.println("Enter value to search: ");
         Scanner s = new Scanner(System.in);
         int seekValue = s.nextInt();
@@ -59,16 +59,22 @@ public class Main {
 
 
 
-        /*
+        // Remove from the list-
         System.out.println("Enter value to remove: ");
         int removeValue = s.nextInt();
 
         IntNode removeCursor = n1;  // main cursor. searching node to remove.
-        IntNode prevCursor = n1;    // backup cursor. saves history of previous node.
+        IntNode prevCursor = removeCursor;    // backup cursor. saves history of single previous node.
         while (removeCursor != null && removeCursor.getValue() != removeValue){
             prevCursor = removeCursor;
             removeCursor = removeCursor.getNext();
         }
-        */
+        if (removeCursor != null){
+            prevCursor.setNext(removeCursor.getNext());
+        }
+        System.out.println(n1);
+
+        // Add to the list-
+        
     }
 }
