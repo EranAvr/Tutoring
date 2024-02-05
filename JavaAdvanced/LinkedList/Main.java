@@ -39,42 +39,86 @@ public class Main {
         System.out.println(n1);
 
 
+        // READ
         // Searching in the list-
         System.out.println("Enter value to search: ");
         Scanner s = new Scanner(System.in);
         int seekValue = s.nextInt();
         // Temp node called 'cursor',
         // to save reference to head of the list n1-
-        IntNode cursor = n1;
+        IntNode searchCursor = n1;
         // while cursor-node is not null and value not found,
         // advance cursor to next node-
-        while (cursor != null && cursor.getValue() != seekValue){
-            cursor = cursor.getNext();
+        while (searchCursor != null && searchCursor.getValue() != seekValue){
+            searchCursor = searchCursor.getNext();
         }
         // While-loop stops when cursor reach the end,
         // and cursor==null.
         // if value is found, then print-
-        if (cursor != null)
-            System.out.println("Value pointed by cursor: " + cursor.getValue());
+        if (searchCursor != null)
+            System.out.println("Value pointed by cursor: " + searchCursor.getValue());
 
 
 
+        // DELETE
         // Remove from the list-
         System.out.println("Enter value to remove: ");
         int removeValue = s.nextInt();
 
-        IntNode removeCursor = n1;  // main cursor. searching node to remove.
-        IntNode prevCursor = removeCursor;    // backup cursor. saves history of single previous node.
-        while (removeCursor != null && removeCursor.getValue() != removeValue){
-            prevCursor = removeCursor;
-            removeCursor = removeCursor.getNext();
+        IntNode removeNode = n1;
+        IntNode prevNode = n1;
+        while (removeNode != null && removeNode.getValue() != removeValue){
+            prevNode = removeNode;
+            removeNode = removeNode.getNext();
         }
-        if (removeCursor != null){
-            prevCursor.setNext(removeCursor.getNext());
+        if (removeNode != null){
+            prevNode.setNext(removeNode.getNext());
         }
+
+        // NOTICE!
+        // In this formation we cannot delete first node,
+        // because variable 'n1' still exists in this program.
+        // When implemented in LinkedList class, we can manage a 'root' variable.
         System.out.println(n1);
 
-        // Add to the list-
-        
+
+
+        // CREATE
+        // Add node to the list-
+        int newValue = 10;
+        int newIndex = 0;
+
+        // 1 -> 2 -> 3
+        IntNode addAfter = n1;
+        int countSteps = 0;
+        while (addAfter.getNext() != null && countSteps < newIndex-1){
+            countSteps++;
+            addAfter = addAfter.getNext();
+        }
+        IntNode newIsertion = new IntNode(10);
+        newIsertion.setNext(addAfter.getNext());
+        addAfter.setNext(newIsertion);
+
+        System.out.println(n1);
+
+
+
+        // UPDATE
+        //  value in chosen node-
+        // Here, we just need to repeat the searching-process,
+        // but this time we update the node's value.
+        int updateValue = 100;
+        System.out.println("Enter old value to update to 100: ");
+        int oldValue = s.nextInt();
+
+        // Change only first occurrence-
+        IntNode updateCursor = n1;
+        while (updateCursor != null && updateCursor.getValue() != oldValue){
+            updateCursor = updateCursor.getNext();
+        }
+        if (updateCursor != null)
+            updateCursor.setValue(updateValue);
+
+        System.out.println(n1);
     }
 }
