@@ -44,6 +44,16 @@ ul li:last-child {
   font-style: italic;
 }
 
+ol li:first-child {
+  color: crimson;
+}
+ol li:last-child {
+  color: cornflowerblue;
+}
+ol li:nth-child(even) {
+  font-weight: bold;
+}
+
 img {
   width: 300px;
 }
