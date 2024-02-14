@@ -4,7 +4,7 @@ public class LoopsExample {
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);
        // While
-
+/*
         // Infinite loop
         while (true) {
             System.out.println("I'm here");
@@ -71,6 +71,13 @@ public class LoopsExample {
             if (i%2==0)
                 continue;
             System.out.println(i);
+        }
+*/
+        for(int i=0 ; i<10 ; i++){  // move between rows
+            for(int j=0 ; j<10 ; j++){  // move between columns
+                System.out.print("("+i+","+j+")\t");
+            }
+            System.out.println();
         }
     }
 }
