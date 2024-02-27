@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS Animations Test</title>
+        <link rel="stylesheet" href="transforms.css">
+    </head>
+    <body>
+        <h1>Transforms Examples with CSS</h1>
+        <p>
+            'transform' is a CSS property,
+            that takes as input one of the following functions:
+            <ul>
+                <li>translate()</li>
+                <li>rotate()</li>
+                <li>scaleX()</li>
+                <li>scaleY()</li>
+                <li>scale()</li>
+                <li>skewX()</li>
+                <li>skewY()</li>
+                <li>skew()</li>
+                <li>matrix()</li>
+            </ul>
+            Each function has its parameters.
+        </p>
+        <h2>Examples:</h2>
+
+        <div class="translation">
+            <h3></h3>
+            <h5>transform: rotate(50px, 20px)</h5>
+            Sets element's upper-left corner to the specified position.
+            <div class="original box"></div>
+            <div class="box">TRANSFORMED</div>
+        </div>
+
+        <div class="rotation">
+            <h3></h3>
+            <h5>transform: rotate(20deg)</h5>
+            <div class="box">TRANSFORMED</div>
+        </div>
+
+        <div class="scaling">
+            <h3>scale</h3>
+            <h5>transform: scale(0.5, 0.25)</h5>
+            Scales the element's width by 0.5 times, <br>
+            and the element's height by 0.25 times.
+            <div class="box scale_both">TRANSFORMED</div>
+            <h5>transform: scaleX(2)</h5>
+            Scales the element's width (X axis) by 2 times
+            <div class="box scaleX">TRANSFORMED</div>
+            <h5>transform: scaleY(2)</h5>
+            Scales the element's height (Y axis) by 2 times
+            <div class="box scaleY">TRANSFORMED</div>
+        </div>
+
+        <div>
+            <h3>Skew</h3>
+            <h5>transform: skew(20deg, 50deg)</h5>
+            Skews the element on its X-axis by 20deg, <br>
+            and the element on its Y-axis by 50deg.
+            <div class="box skew_both">TRANSFORMED</div>
+            <h5>transform: skewX(20deg)</h5>
+            Skews the element on its X-axis by 20deg
+            <div class="box skewX">TRANSFORMED</div>
+            <h5>transform: skewY(50deg)</h5>
+            Skews the element on its Y-axis by 50deg
+            <div class="box skewY">TRANSFORMED</div>
+        </div>
+
+        <div>
+            <h3>Matrix</h3>
+            <h5>transform: matrix(1, -0.3, 0, 1, 0, 0)</h5>
+            matrix combines all of the transforms into 1 function. <br>
+            Parameters are as follow: matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY()) . <br>
+            <i>Example is presented with margin top/left of 100px, for convenience.</i>
+            <div class="box matrix">TRANSFORMED</div>
+        </div>
+    </body>
+</html>

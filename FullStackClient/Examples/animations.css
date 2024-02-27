@@ -1,0 +1,155 @@
+body{
+    background-color: antiquewhite;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(0, 132, 255);
+    border-radius: 15px;
+    text-align: center;
+    line-height: 100px;
+    font-size: x-large;
+}
+.rect{
+    width: 200px;
+    height: 100px;
+    background-color: rgb(102, 255, 0);
+    border-radius: 15px;
+    text-align: center;
+    line-height: 30px;
+    font-size: large;
+}
+.box:hover{
+    width: 300px;
+}
+.transition_color:hover{
+    background-color: rgb(0, 72, 255);
+}
+.inline_block{
+    display: inline-block;
+}
+
+
+
+.transition_color{
+    transition-property: background-color;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 1s;
+}
+.transition_width1{
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: ease;
+}
+.transition_width2{
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+.transition_width3{
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: ease-in;
+}
+.transition_width4{
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: ease-out;
+}
+.transition_width5{
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+}
+
+
+
+.anim_box{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(0, 132, 255);
+    border-radius: 15px;
+    text-align: center;
+    line-height: 100px;
+    font-size: x-large;
+}
+.anim_rect{
+    width: 300px;
+    height: 100px;
+    background-color: rgb(102, 255, 0);
+    border-radius: 15px;
+    text-align: center;
+    line-height: 100px;
+    font-size: large;
+}
+@keyframes example {
+    from {background-color:  rgb(217, 255, 0)}
+    to {background-color: rgb(0, 255, 221); margin-left: 300px;}
+}
+.animation_example{
+    animation-name: example;
+    animation-duration: 3s;
+}
+
+@keyframes coloring {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+}
+.animation_coloring{
+    animation-name: coloring;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes scaling {
+    to {width: 700px;}
+}
+.animation_scaling{
+    animation-name: scaling;
+    animation-duration: 7s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes crawling {
+    0%   {width: 100px; margin-left: 0px;}
+    25%  {width: 200px; margin-left: 0px;}
+    50%  {width: 100px; margin-left: 100px;}
+    75% {width: 200px; margin-left: 100px;}
+    100% {width: 100px; margin-left: 200px;}
+}
+.animation_crawling{
+    animation-name: crawling;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+}
+
+@keyframes spinning {
+    0%   {transform: rotate(0deg);}
+    25%  {transform: rotate(90deg);}
+    50%  {transform: rotate(180deg);}
+    75% {transform: rotate(270deg);}
+    100% {transform: rotate(360deg);}
+}
+.animation_spinning{
+    animation-name: spinning;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spinning3d {
+    0%   {transform: rotateY(0deg);}
+    50%  {transform: rotateY(180deg);}
+    100% {transform: rotateY(360deg);}
+}
+.animation_spinning3d{
+    animation-name: spinning3d;
+    animation-duration: 8s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
