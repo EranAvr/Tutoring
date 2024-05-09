@@ -25,11 +25,23 @@ public class Arrays090524 {
 
 
         System.out.println("--------------------------");
-
         // Testing our transpose() function.
         printTable(table2);
         int[][] result = transpose(table2);
         printTable(result);
+        printTableWithMiniFor(result);
+
+
+
+        System.out.println("--------------------------");
+        int[][] table3 =    {{1, 2, 3},
+                            {4, 5, 6},
+                            {7, 8, 9}};
+        System.out.println("Before:");
+        printTable(table3);
+        swapRows( table3 , 0, 2);
+        System.out.println("After:");
+        printTable(table3);
 
     }
 
@@ -41,6 +53,15 @@ public class Arrays090524 {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
                 System.out.print(arr[i][j] + ",");
+            }
+            System.out.println();
+        }
+    }
+    static public void printTableWithMiniFor(int[][] arr){
+        // Implementing printTable, but with shorten loops.
+        for (int[] tempArr : arr){
+            for (int n : tempArr){
+                System.out.print(n + ",");
             }
             System.out.println();
         }
@@ -66,5 +87,19 @@ public class Arrays090524 {
         return temp;
     }
 
-    // Exercises Implementations:
+
+    static public void swapRows(int[][] arr, int index1, int index2){
+        // The general idea follows swapping between two values,
+        // BUT, because objects/arrays referenced by address, then
+        // what we actually swap is the addresses of two different
+        // rows (which are actually regular arrays).
+
+        // holding one of the rows (array address) in temp variable-
+        int[] tempArr = arr[index1];
+        // save one row into the other-
+        arr[index1] = arr[index2];
+        // save first row, from temp-var, into the second one-
+        arr[index2] = tempArr;
+    }
+
 }
