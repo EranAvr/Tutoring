@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fetch API Examples</h1>
+    <h2>Info:</h2>
+    <p>
+        Here, we demonstrate the use of Fetch API in Javascript. <br>
+        <h4>GET</h4>
+        We use GET request to obtain Json data (textual) and Binary data (media). <br>
+        <ul>
+            <li>For json data- use Response.json() method.</li>
+            <li>For binary data- use Response.blob() method.</li>
+        </ul>
+        <h4>POST</h4>
+        We use POST request to send data <b>to</b> the server, <br>
+        e.g. saving data in database or pass crucial data to the server. <br>
+        To make a POST request, fetch() must receive two parameters, in the following order:
+        <ol>
+            <li>Endpoint (target) URL</li>
+            <li>Object of request-options, like this-</li>
+        </ol>
+        <p>
+            &emsp;{ <br>
+                &emsp;&emsp;    method: <i>some text..</i>, <br>
+                &emsp;&emsp;    headers: <i>JS object holding metadata</i>, <br>
+                &emsp;&emsp;    body: <i>JS object holding actual data</i> <br>
+            &emsp;} <br>
+        </p>
+    </p>
+    <br>
+    <h2>Examples:</h2>
+    <div class="example1">
+        <h3>Http GET request to read json data:</h3>
+        <button onclick="dynamicGetRequestForJSON()">click me</button>
+        <h4>Dynamic content:</h4>
+        <div id="get_res_1">
+            
+        </div>
+    </div>
+    <hr>
+    <div class="example2">
+        <h3>Http GET request to read binary data:</h3>
+        <button onclick="dynamicGetRequestForBinary()">click me</button>
+        <h4>Dynamic content:</h4>
+        <div id="get_res_2">
+            
+        </div>
+    </div>
+    <hr>
+    <div class="example3">
+            <h3>Form</h3>
+            <input type="text" id="fName" placeholder="enter first name"> <br>
+            <input type="text" id="lName" placeholder="enter last name">
+            <div>
+                <button onclick="makePostRequest()">submit</button>
+            </div>
+        <h4>Server response:</h4>
+        <div id="post_res_1">
+            
+        </div>
+    </div>
+    
+
+    <script src="full_example.js"></script>
+</body>
+</html>
