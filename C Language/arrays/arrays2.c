@@ -24,7 +24,7 @@ int main(){
     }
     
     int rows = sizeof(matrix2)/sizeof(matrix2[0]);  // calculation for number of rows. rows = 24 / 12 = 2
-    int cols = sizeof(matrix2[0])/sizeof(int);  // calculation for number of columns. cols = 12 /4 = 3
+    int cols = sizeof(matrix2[0])/sizeof(int);  // calculation for number of columns. cols = 12 / 4 = 3
     printIntTable(rows, cols, matrix2);
 
     return 0;
