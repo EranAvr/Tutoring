@@ -79,6 +79,12 @@ int main(int argc, char const *argv[])
     printf("%p < %p | res = %d\n", thirdPtr, secondPtr, (thirdPtr < secondPtr));
     printf("%p >= %p | res = %d\n", thirdPtr, secondPtr, (thirdPtr >= secondPtr));
 
+    // traversing using arithmetic:
+    for (int* trvPtr = integers; trvPtr < integers+N; trvPtr++)
+    {
+        printf("%d\n", *trvPtr);
+    }
+    
     
 
     return 0;
