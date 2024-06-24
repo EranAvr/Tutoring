@@ -36,8 +36,10 @@ int main(){
     // right length for the string.
     char str6[] = "count";
     char str7[20] = "count";
+    char *str8 = "count...";
     printf("Elements count in str6 = %d\n", sizeof(str6)/sizeof(char));
     printf("Elements count in str7 = %d\n", sizeof(str7)/sizeof(char));
+    printf("Elements count in str8 = %d\n", sizeof(str8)/sizeof(char)); // size is undefined in pointers
 
 
     return 0;
