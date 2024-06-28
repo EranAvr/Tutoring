@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react';
 import './App.css'
 
-import { count, increment, decrement, setValue } from './mobx2/countState';
+import { count, increment, decrement, setValue } from './countState';
 import {default as countStore} from './countStore';
 import {default as countClass} from './countClass';
 import {default as countClassAuto} from './countClassAuto';
