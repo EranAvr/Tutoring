@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, reaction } from "mobx";
 
 class Store{
 
@@ -24,5 +24,10 @@ class Store{
 }
 
 const store = new Store();
+
+// reactions can be added outside of the class-
+reaction(() => store.count, (value, previousValue, reaction) => {
+    console.log("Auto Store Class, reaction; value = " + value);
+})
 
 export default store;
