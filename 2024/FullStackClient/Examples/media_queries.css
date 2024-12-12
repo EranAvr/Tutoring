@@ -1,0 +1,83 @@
+body{
+    background-color: antiquewhite;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(0, 132, 255);
+    border-radius: 15px;
+    text-align: center;
+    line-height: 100px;
+    font-size: x-large;
+}
+.container{
+    min-height: 100px;
+    border: 1px solid black;
+    background-color: bisque;
+    text-align: center;
+    line-height: 50px;
+    font-size: xx-large;
+}
+@media screen and (max-width: 480px) {
+    .media_color{
+        background-color: lightgreen;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .media_font{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .media_flex{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 100px 800px 100px;
+    background-color: transparent;
+    border: 1px solid black;
+    resize: both;
+    overflow: auto;
+    text-align: center;
+    font-size: x-large;
+}
+.grid-container > header{
+    grid-column: 1 / 4;
+    background-color: chocolate;
+}
+.grid-container > .lefty{
+    grid-column: 1/2;
+    background-color: rgb(213, 255, 171);
+}
+.grid-container > article{
+    grid-column: 2/3;
+    background-color: chartreuse;
+}
+.grid-container > .righty{
+    grid-column: 3/4;
+    background-color: rgb(213, 255, 171);
+}
+.grid-container > footer{
+    grid-column: 1/4;
+    background-color: chocolate;
+}
+@media screen and (max-width: 600px) {
+    .media_holy_grail{
+        grid-template-columns: 100%;
+    }
+    aside{
+        display: none;
+    }
+    .grid-container > article{
+        grid-column: 1/2;
+    }
+}

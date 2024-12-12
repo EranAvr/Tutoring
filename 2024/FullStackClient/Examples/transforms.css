@@ -1,0 +1,58 @@
+body{
+    background-color: antiquewhite;
+}
+body > div{
+    margin: 100px 0px;
+}
+li{
+    font-weight: 800;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    font-size: small;
+    background-color: red;
+    border: 1px solid black;
+}
+.original{
+    opacity: 0.3;
+    display: none;
+}
+
+.translation > .box:last-child{
+    transform: translate(50px, 20px);
+}
+.rotation > .box{
+    transform: rotate(30deg);
+}
+
+.scale_both{
+    transform: scale(0.5, 0.25);
+}
+.scaleX{
+    transform: scaleX(2);
+    margin-left: 100px;
+}
+.scaleY{
+    transform: scaleY(2);
+    margin-top: 100px;
+}
+
+.skew_both{
+    transform: skew(20deg, 50deg);
+}
+.skewX{
+    transform: skewX(20deg);
+    margin-left: 100px;
+}
+.skewY{
+    transform: skewY(50deg);
+    margin-top: 100px;
+}
+
+.matrix{
+    transform: matrix(1, -0.3, 0, 1, 0, 0);
+    margin-left: 100px;
+    margin-top: 100px;
+}

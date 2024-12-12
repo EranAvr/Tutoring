@@ -1,0 +1,56 @@
+body{
+    background-color: antiquewhite;
+    min-height: 3000px;
+}
+
+.box_image{
+    width: 100px;
+}
+.floating_image{
+    width: 400px;
+}
+.floating_image > img{
+    float: right;
+}
+
+.bordered_container{
+    border: 1px solid black;
+}
+.relative_image{
+    overflow: hidden;
+}
+.relative_image > img{
+    position: relative;
+    left: 200px;
+    top: 50px;
+}
+
+.absolute_image > img{
+    position: absolute;
+    left: 50%;
+}
+
+.fixed_image > img{
+    position: fixed;
+    right: 100px;
+}
+
+.side_menu{
+    position: sticky;
+    left: 50px;
+    top: 0px;
+
+    width: 100px;
+    height: 200px;
+    background-color: aquamarine;
+    border: 1px solid lightgreen;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.zIndex_image{
+    color: aliceblue;
+}
+.zIndex_image > img{
+    z-index: -1;
+}

@@ -1,0 +1,61 @@
+h1{
+    text-align: center;
+}
+
+.grid-container{
+    display: grid;
+    padding: 20px;
+    background-color: cornflowerblue;
+    resize: both;
+    overflow: auto;
+    margin: 1px;
+}
+.grid-inline-container{
+    display: inline-grid;
+    padding: 20px;
+    background-color: cornflowerblue;
+    resize: both;
+    overflow: auto;
+    margin: 1px;
+}
+.grid-container > div, .grid-inline-container > div{
+    background-color: brown;
+    color: azure;
+    border: 1px solid black;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.grid-4-columns{
+    grid-template-columns: auto auto auto auto;
+}
+.grid-3-uneven-columns{
+    grid-template-columns: 25% 50% 25%;
+}
+.grid-4-specific-columns{
+    grid-template-columns: 50px 100px 150px 200px;
+}
+.grid-3-uneven-rows{
+    grid-template-rows: 50px 100px 150px;
+}
+.grid-columns-and-rows-1{
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 50px 150px;
+}
+.grid-columns-and-rows-2{
+    grid-template-columns: 50px 150px 300px;
+    grid-template-rows: 50px 150px 300px;
+}
+.grid-3-columns{
+    grid-template-columns: auto auto auto;
+}
+.grid-columns-gap{
+    column-gap: 50px;
+}
+.grid-rows-gap{
+    row-gap: 100px;
+}
+.two-rows-item{
+    grid-row-end: span 2;
+}
