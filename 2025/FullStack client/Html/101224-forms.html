@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page of Forms</title>
+    </head>
+    <body>
+        <h1>HTML Forms Example</h1>
+        <div>
+            <h3>Empty form</h3>
+            <form action="">
+            </form>
+        </div>
+        <div>
+            <h3>Simple form</h3>
+            <form action="">
+                <input type="text"/>
+                <button>Button 1</button>
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <hr>
+        <div>
+            <h3>Login form</h3>
+            <form action="">
+                <input type="text" placeholder="Enter username" name="username"/>
+                <input type="password" placeholder="Enter password" name="pass"/>
+
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <hr>
+        <div>
+            <h3>Labeled form</h3>
+            <form action="">
+                <label for="free_text">Enter free text:</label>
+                <input type="text" name="free_text" />
+                <br>
+                <label for="second_text">Enter secondary text</label>
+                <input type="text" name="second_text" />
+                <br>
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <hr>
+        <div>
+            <h3>Other inputs form</h3>
+            <form action="">
+                <input type="email" name="email" placeholder="Enter email"/> <br>
+                <textarea placeholder="Box for long text"></textarea> <br>
+
+                <br>
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <hr>
+        <div>
+            <h3>Radio and Checkbox form</h3>
+            <form action="">
+                <h4>Radio buttons</h4>
+                <input type="radio" name="gender" value="male"/>
+                <label for="gender">Male</label>
+                <input type="radio" name="gender" value="female"/>
+                <label for="gender">Female</label>
+                <br>
+                <h4>Checkboxes</h4>
+                <input type="checkbox" name="hobbies" value="hiking"/>
+                <label for="hobbies">Hiking</label>
+                <input type="checkbox" name="hobbies" value="sport"/>
+                <label for="hobbies">Sport</label>
+                <input type="checkbox" name="hobbies" value="music"/>
+                <label for="hobbies">Music</label>
+
+                <br>
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>

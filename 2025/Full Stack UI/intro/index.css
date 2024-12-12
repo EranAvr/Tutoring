@@ -1,0 +1,37 @@
+body {
+    background-color: antiquewhite;
+}
+
+#author {
+    color: brown;
+    font-weight: bolder;
+    font-size: large;
+}
+
+.my_text {
+    font-style: italic;
+}
+.centered_text {
+    text-align: center;
+}
+
+#visual_list {
+    background-color: aqua;
+}
+#visual_list > li:first-child{
+    background-color: rgb(0, 0, 206);
+}
+#visual_list > li:last-child{
+    background-color: rgb(173, 173, 255);
+}
+#visual_list > li:nth-child(even){
+    background-color: rgb(173, 255, 211);
+}
+
+div > p {
+    background-color: coral;
+}
+
+p:hover {
+    background-color: aliceblue;
+}
