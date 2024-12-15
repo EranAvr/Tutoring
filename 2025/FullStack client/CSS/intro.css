@@ -1,0 +1,10 @@
+/* style properties for body: */
+body {
+    background-color: red;
+    color: blue;
+}
+
+p {
+    /* comment inside a block */
+    color: aliceblue;   /* inline comment */
+}

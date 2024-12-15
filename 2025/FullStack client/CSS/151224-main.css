@@ -1,0 +1,23 @@
+body {
+    background-color: bisque;
+}
+
+img {
+    opacity: 0.3;
+    width: 300%;
+}
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+h1 {
+    text-align: center;
+}
+
+div {
+    width: 500px;
+}
