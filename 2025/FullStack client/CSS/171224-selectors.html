@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+        img {
+            width: 300px;
+        }
+        .prettyText { /* class selector */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: x-large;
+        }
+        #myId { /* id selector */
+            width: 400px;
+        }
+
+        .darkTheme {
+            background-color: rgb(0, 0, 65);
+            color: aliceblue;
+        }
+
+        .content_box#first_box {
+            background-color: coral;
+        }
+        .my_paragraphs > p {
+            color: chartreuse;
+        }
+        /* asterix operator address all elements */
+        /* * {
+            border: 1px solid black;
+        }*/
+
+        li:first-child {
+            text-decoration: underline;
+        }
+        li:last-child {
+            font-style: italic;
+        }
+        li {
+            font-size: 200%;
+        }
+        table {
+            background-color: rgb(112, 28, 28);
+        }
+        tr:nth-child(odd) {
+            background-color: aquamarine;
+        }
+        tr:nth-child(even) {
+            background-color: rgb(76, 157, 130);
+        }
+
+        input[type="text"] {
+            background-color: burlywood;
+        }
+        input[type="email"] {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Page Title</h1>
+    <p class="prettyText">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus magnam suscipit necessitatibus? Ut asperiores nobis rem veritatis illo aspernatur officia corporis, nemo, saepe iste tempore id facere. Minus, excepturi autem.
+    </p>
+    <p class="prettyText darkTheme">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus magnam suscipit necessitatibus? Ut asperiores nobis rem veritatis illo aspernatur officia corporis, nemo, saepe iste tempore id facere. Minus, excepturi autem.
+    </p>
+    <h1>Second Section</h1>
+    <article>
+        <div class="prettyText">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae voluptas veniam atque. Obcaecati, temporibus voluptatibus asperiores dolore iste ab earum quod error ratione? Illum, labore obcaecati id quas ea laboriosam. <br>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam sed dignissimos atque quia, excepturi expedita vero! Dignissimos, amet architecto consectetur a quasi eius autem praesentium. Similique molestiae maiores dolores labore! <br>
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="some image..">
+            <img id="myId" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="some image..">
+        </div>
+        <div>
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="some image..">
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="some image..">
+        </div>
+    </article>
+    <hr>
+    <article>
+        <h1>Second Part</h1>
+        <div id="first_box" class="content_box">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima neque sunt nostrum sequi temporibus illum in ipsa sint saepe amet exercitationem molestias, vitae, consequuntur eius iste consequatur laboriosam? Ex.
+        </div>
+        <div class="content_box">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat quae accusantium hic totam eum sit quisquam? Veniam dolor, facere, distinctio rem id quis eligendi, et debitis quae obcaecati quaerat quisquam?
+        </div>
+        <div class="content_box">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi atque officia corrupti consectetur hic? Culpa voluptatum eos eligendi quibusdam laudantium rerum minima neque consectetur assumenda et, amet blanditiis iusto facilis!
+        </div>
+
+        <hr>
+
+        <div class="my_paragraphs">
+            <p>
+                First direct child
+                <p>
+                    Inner paragraph!
+                </p>
+            </p>
+            <p>
+                Second direct child
+            </p>
+        </div>
+    </article>
+    <hr>
+    <article>
+        <ol>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+        </ol>
+        <table>
+            <tr><td>row 1</td></tr>
+            <tr><td>row 2</td></tr>
+            <tr><td>row 3</td></tr>
+            <tr><td>row 4</td></tr>
+            <tr><td>row 5</td></tr>
+        </table>
+    </article>
+    <hr>
+    <article>
+        <form action="">
+            <input type="text" placeholder="text 1"> <br>
+            <input type="text" placeholder="text 2"> <br>
+            <input type="text" placeholder="text 3"> <br>
+            <input type="email" placeholder="enter email"> <br>
+            <input type="file"> <br>
+        </form>
+    </article>
+
+    
+</body>
+</html>

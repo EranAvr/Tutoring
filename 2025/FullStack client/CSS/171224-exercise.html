@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Selectors Exercise</title>
+    <style>
+        .my_text {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+        .my_color {
+            color: brown;
+            background-color: rgb(175, 255, 255);
+        }
+
+        div.my_text {
+            background-color: bisque;
+        }
+        li:first-child {
+            text-decoration: underline;
+        }
+        li:last-child {
+            text-decoration: line-through;
+        }
+        li:nth-child(odd) { /* children 1,3,5,7..*/
+            color: brown;
+        }
+        li:nth-child(even) { /* children 2,4,6,8..*/
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>About Page</h1>
+    <p class="my_text">
+        This has only text styly. <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequatur, consequuntur sed rem distinctio ducimus nesciunt facere, harum architecto aperiam ut quis qui tempore voluptates, quos ex fuga voluptatem nostrum.
+    </p>
+    <p class="my_color">
+        This has only color. <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequatur, consequuntur sed rem distinctio ducimus nesciunt facere, harum architecto aperiam ut quis qui tempore voluptates, quos ex fuga voluptatem nostrum.
+    </p>
+    <p>
+        This has none! <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptates, unde laboriosam maxime fugiat alias incidunt laborum libero aspernatur, nihil repellendus. Error, reiciendis quidem nobis aspernatur doloribus quos. Ipsa, suscipit!
+    </p>
+    <p class="my_text my_color">
+        This has text-style AND colors. <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequatur, consequuntur sed rem distinctio ducimus nesciunt facere, harum architecto aperiam ut quis qui tempore voluptates, quos ex fuga voluptatem nostrum.
+    </p>
+    <hr>
+    <div class="my_text"> <br>Some template text.. <br> </div>
+    <div> <br>Some other template text.. <br> </div>
+    <hr>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+        <li>item 5</li>
+        <li>item 6</li>
+        <li>item 7</li>
+        <li>item 8</li>
+    </ul>
+</body>
+</html>
