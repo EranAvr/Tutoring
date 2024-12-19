@@ -2,16 +2,22 @@
 
 int main(){
     // int:
-    int input;
+    /*int num;
+    scanf("%d", &num);
+    printf("User int value = %d \n", num);
 
-    scanf("%d\n", &input);
+    scanf("number is %d", &num);
+    printf("User int value = %d \n", num);
 
-    printf("User int value = %d \n", input);
+    while (getchar() != '\n');*/
+    int hours, minutes, seconds;
+    scanf("%d:%d:%d", &hours, &minutes, &seconds);
+    printf("time is %d-%d-%d \n", hours, minutes, seconds);
 
     // char:
-    char c;
-    scanf("%c\n", &c);
-    printf("User char value = %c\n", c);
+    char myChar;
+    scanf(" %c", &myChar);   // placing a whitespace before the specifier will consume leftover whitespaces (' ' or '\n')
+    printf("User char value = %c\n", myChar);
 
     // float:
     float f;
