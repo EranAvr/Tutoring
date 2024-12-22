@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .bordered_div {
+            border-width:  1em;
+            border-color: chocolate;
+            border-style: dashed;
+        }
+        .div_of_spans > span {
+            margin: 50px;
+        }
+        .padded_div {
+            padding: 20px;
+        }
+        .all_three {
+            margin: 100px;
+            border: 1px black solid;
+            padding: 50px;
+        }
+
+        .nav1 {
+            background-color: chocolate;
+            border: 2px blue solid;
+        }
+        .nav1 > a {
+            margin-left: 50px;
+        }
+        .nav2 {
+            background-color: blanchedalmond;
+            padding: 10px;
+        }
+        .nav2 > a {
+            margin-left: 100px;
+        }
+        .nav2 > img {
+            width: 30px;
+            margin-left: 300px;
+        }
+        .nav3 {
+            border: 5px blue solid;
+            border-radius: 30px;
+            padding: 20px;
+        }
+        .rounded_image {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+        }
+        .centered_div {
+            width: 300px;
+            margin: auto;
+        }
+        .different_margins > div {
+            margin: 100px 50px 200px 300px;
+            padding: 25px 75px;
+            border: 1px black solid;
+        }
+
+        /* Backgrounds: */
+        body {
+            background-image: url("https://www.shutterstock.com/image-photo/calm-weather-on-sea-ocean-600nw-2212935531.jpg");
+            background-repeat: no-repeat;
+            background-size: 100vw;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    <h1>Title</h1>
+    <div>
+        <div>
+            This element has only content
+        </div>
+        <div class="bordered_div">
+            This element has border
+        </div>
+        <div class="div_of_spans">
+            <span>Span 1</span><span>Span 2</span><span>Span 3</span>
+        </div>
+        <div class="padded_div">
+            This element has padding
+        </div>
+        <div class="all_three">
+            All three: margin-border-padding
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h3>Navbars</h3>
+        <nav class="nav1">
+            <a href="">link 1</a>
+            <a href="">link 2</a>
+            <a href="">link 3</a>
+        </nav>
+        <br>
+        <nav class="nav2">
+            <a href="">link 4</a>
+            <a href="">link 5</a>
+            <img src="https://cdn-icons-png.flaticon.com/512/5709/5709755.png" alt="">
+        </nav>
+        <br>
+        <nav class="nav3">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.<br>
+             placeat temporibus magni minus animi inventore sed esse adipisci <br>
+              in quam quis, dolore voluptate, qui maiores, perspiciatis <br>
+               aspernatur distinctio libero? Praesentium.
+        </nav>
+        <div>
+            <img class="rounded_image" src="https://www.shutterstock.com/image-photo/natural-beautiful-immage-260nw-1140862808.jpg" alt="">
+        </div>
+        <div class="centered_div">
+            <h4>Centered div</h4>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.<br>
+            placeat temporibus magni minus animi inventore sed esse adipisci <br>
+             in quam quis, dolore voluptate, qui maiores, perspiciatis <br>
+              aspernatur distinctio libero? Praesentium.
+        </div>
+    </div>
+    <div class="different_margins">
+        <div>some text</div>
+    </div>
+    
+</body>
+</html>
