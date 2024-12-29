@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <style>
-        nav {
+        .custom_navbar {
             border: 2px blue solid;
             text-align: center;
             height: 50px;
@@ -20,6 +20,28 @@
         nav img {
             height: 100%;
         }
+        nav > .links{
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .holy_grail_container{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        .middle_content{
+            height: 60vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .holy_grail_container > header{
+            height: 20vh;
+        }
+        .holy_grail_container > footer{
+            height: 20vh;
+        }
     </style>
 </head>
 <body>
@@ -27,11 +49,11 @@
     <p>
         A simple example for using flexbox to build a navbar.
     </p>
-    <nav>
+    <nav class="custom_navbar">
         <section>
             <img src="https://cdn-icons-png.flaticon.com/512/5709/5709755.png" alt="">
         </section>
-        <section>
+        <section class="links">
             <a href="">link 1</a>
             <a href="">link 2</a>
             <a href="">link 3</a>
@@ -48,5 +70,16 @@
         Build an entire page of 'Holy-Grail' layout using flex box. <br>
         To be continue...
     </p>
+    <div class="holy_grail_container">
+        <header>header</header>
+
+        <div class="middle_content">
+            <nav>navbar</nav>
+            <main>main content</main>
+            <aside>sidebar</aside>
+        </div>
+
+        <footer>footer</footer>
+    </div>
 </body>
 </html>

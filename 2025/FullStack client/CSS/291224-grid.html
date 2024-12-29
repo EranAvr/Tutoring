@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            display: grid;
+            grid-template-rows: 10vh 80vh 10vh;
+            grid-template-columns: 20vw auto 20vw;
+
+            text-align: center;
+            font-size: xx-large;
+        }
+        .header{
+            background-color: chocolate;
+            grid-row-start: 1;  /* כולל שורה 1 */
+            grid-row-end: 2;    /* לא כולל שורה 2 */
+
+            grid-column-start: 1;   /* החל בעמודה 1 */
+            grid-column-end: 4;     /* אל תכנס לעמודה 4 */
+        }
+        .footer{
+            background-color: chocolate;
+            grid-row-start: 3;
+            grid-row-end: 4;
+
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+        .navig{
+            background-color: chartreuse;
+        }
+        .mainy {
+            background-color: blanchedalmond;
+        }
+        .sidy {
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">header</header>
+
+    <nav class="navig">navigation</nav>
+    <main class="mainy">main content</main>
+    <aside class="sidy">sidebar</aside>
+
+    <footer class="footer">footer</footer>
+    
+</body>
+</html>
