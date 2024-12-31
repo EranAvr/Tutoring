@@ -1,0 +1,42 @@
+body {
+    display: grid;
+    grid-template-columns: 20vw 60vw 20vw;
+    grid-template-rows: auto 80vh 10vh;
+    grid-template-areas: 
+        "navbar navbar navbar"
+        "main main side"
+        "footer footer footer"
+    ;
+}
+body > *{
+    text-align: center;
+    border: 1px black solid;
+    border-radius: 15px;
+}
+
+nav {
+    grid-area: navbar;
+}
+main {
+    grid-area: main;
+}
+aside {
+    grid-area: side;
+}
+footer {
+    grid-area: footer;
+}
+
+@media (max-width: 480px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    body > * {
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

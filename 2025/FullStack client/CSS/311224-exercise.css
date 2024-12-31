@@ -1,0 +1,76 @@
+/* Global Classes */
+.rounded_box {
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 20px;
+}
+.btn {
+    text-align: center;
+    width: 100px;
+    border-radius: 15px;
+    padding: 0px 20px;
+
+    text-decoration: none;
+    font-weight: bolder;
+}
+.dark {
+    background-color: rgb(51, 51, 51);
+}
+.light {
+    background-color: aliceblue;
+}
+.red {
+    background-color: crimson;
+}
+.blue {
+    background-color: rgb(38, 195, 200);
+}
+.green {
+    background-color: rgb(173, 255, 91);
+}
+
+
+header, nav {
+    height: 5vh;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+main > section {
+    height: 70vh;
+}
+main > section:nth-child(odd){
+    background-color: blanchedalmond;
+}
+main > section:nth-child(even){
+    background-color: rgb(174, 255, 152);
+}
+.lang_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.lang_section > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5%;
+}
+.code_box > p {
+    background-color: azure;
+    padding: 1em;
+}
+
+
+footer {
+    padding: 5em;
+}
+.middle_footer {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: auto auto;
+}

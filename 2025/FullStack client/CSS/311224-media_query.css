@@ -1,0 +1,15 @@
+body {
+    background-color: bisque;
+}
+
+@media (min-width: 480px) and (max-width: 1023px) {
+    body {
+        background-color: blue;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        background-color: crimson;
+    }
+}
