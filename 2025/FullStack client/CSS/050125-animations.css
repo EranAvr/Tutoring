@@ -1,0 +1,90 @@
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    border: 1px black solid;
+
+    text-align: center;
+    font-size: xx-large;
+    line-height: 100px;
+}
+
+.move_right {
+    transform: translateX(200px);
+}
+.scale_up {
+    transform: scaleY(150%);
+}
+.rotate_right {
+    transform: rotateZ(-30deg);
+}
+.skew_some {
+    transform: skewX(30deg);
+}
+
+
+
+
+.image_box {
+    width: 200px;
+    display: block;
+}
+.resize {
+    transition-property: width;
+    transition-duration: 2s;
+}
+.resize:hover {
+    width: 400px;
+}
+
+.jump_right {
+    transition-property: transform;
+    transition-duration: 3s;
+}
+.jump_right:hover {
+    transform: translateX(-300px);
+}
+
+.rotate_a_bit {
+    transition-property: transform;
+    transition-duration: 5s;
+    transition-timing-function: ease-out;
+}
+.rotate_a_bit:hover {
+    transform: rotateZ(90deg);
+}
+
+.skew_delay {
+    transition: transform 3s ease-in-out 1s;
+}
+.skew_delay:hover {
+    transform: skewX(-50deg);
+}
+
+
+
+@keyframes change_colors {
+    0% {background-color: bisque}
+    50% {background-color: rgb(210, 33, 30)}
+    100% {background-color: bisque}
+}
+.animated_article {
+    animation-name: change_colors;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotating {
+    from {transform: rotateZ(0deg);}
+    to {transform: rotateZ(360deg);}
+}
+.animated_box {
+    width: 400px;
+    display: block;
+    margin-left: 50%;
+
+    animation-name: rotating;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
