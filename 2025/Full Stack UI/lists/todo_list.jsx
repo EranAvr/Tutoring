@@ -4,28 +4,24 @@ const DATA = [
     {id: "1", text: "go to shopping"},
     {id: "2", text: "clean the house"},
 ]
-const DATA2 = [
-    "go to shopping",
-    "clean the house",
-]
 
 class ToDoList extends Component{
     constructor(){
         super();
         this.state = {
-            items: DATA,
+            items: [...DATA],
             newTodo: ""
         }
+        this.ID = parseInt(this.state.items[this.state.items.length-1].id);
     }
 
     handleAdd = () => {
-        //console.log(this.state.newTodo);
-        if (this.state.newTodo != ""){
-            let newId = this.state.items.length + 1;
+        if (this.state.newTodo.trim() !== ""){
+            let newId = ++this.ID;
             this.setState(
                 {items: [
                 ...this.state.items,
-                {id: newId, text: this.state.newTodo}
+                {id: newId, text: this.state.newTodo.trim()}
             ],
             newTodo: "", 
             updateTodo: ""}
@@ -47,19 +43,20 @@ class ToDoList extends Component{
                 } else {
                     return itm;
                 }
-            })
+            }),
+            updateTodo: ""
         });
     }
 
     render(){
-        const items = this.state.items;
+        const {items, newTodo, updateTodo} = this.state;
         return(
             <div>
-                <input onChange={
+                <input value={newTodo} onChange={
                     ({target}) => {this.setState({newTodo: target.value})}
                     } type="text" placeholder="enter assignment" />
                 <button onClick={this.handleAdd}>add</button> <br />
-                <input onChange={
+                <input value={updateTodo} onChange={
                     ({target}) => {this.setState({updateTodo: target.value})}
                     } type="text" placeholder="enter update" />
                 <hr />
