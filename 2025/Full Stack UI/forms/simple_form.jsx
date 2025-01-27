@@ -11,7 +11,7 @@ export function SimpleForm(){
 
     return(
         <form>
-            <input onChange={ ({target})=>{setUserName(target.value)}} type="text" placeholder="Enter user name"/>
+            <input onChange={ (event)=>{setUserName(event.target.value)}} type="text" placeholder="Enter user name"/>
             <br />
             <input onChange={({target})=>{setPassword(target.value)}} type="password" placeholder="Enter password"/>
             <br />
