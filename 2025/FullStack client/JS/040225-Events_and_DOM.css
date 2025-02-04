@@ -1,0 +1,23 @@
+.day_theme{
+    background-color: aliceblue;
+    color: rgb(30, 36, 29);
+}
+.night_theme{
+    background-color: rgb(14, 11, 32);
+    color: rgb(127, 255, 168);
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+
+    text-align: center;
+    line-height: 200px;
+    font-size: x-large;
+}
+
+.comment{
+    font-weight: bolder;
+    color: chocolate;
+}
