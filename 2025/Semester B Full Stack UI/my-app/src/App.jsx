@@ -1,13 +1,15 @@
 import './App.css'
 
-import Counter from './components/counter'
-import Signup from './components/signup'
-import ListComponent from './components/listComp'
+import { Counter, CounterBothSides, NavbarCounter } from './references/counter'
+import StopWatch from './references/stopwatch'
 
 function App() {
   return(
     <>
-      <ListComponent title="React Interactive List" />
+      <Counter />
+      <CounterBothSides />
+      <NavbarCounter />
+      <StopWatch />
     </>
   )
 }
