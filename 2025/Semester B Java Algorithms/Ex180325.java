@@ -47,15 +47,38 @@ public class Ex180325 {
         System.out.println( reverseNumber(9) );
         System.out.println( reverseNumber(0) );
 
+
         // ex2:
         // כתבו פונ' המקבלת מספר שלם חיובי או שלילי
         // הפונ' תחזיר מספר שלם שספרותיו הפוכות למספר המקורי
         // ניתן להעזר בפונ' מהשאלה הקודמת
+        // קלט שלילי צריך להחזיר פלט שלילי
+        System.out.println( reverseNegPos(12345) );
+        System.out.println( reverseNegPos(-12345) );
+
 
         // ex3:
         // כתבו פונ' המקבלת מספר שלם חיובי
-        // הפונ' תבדוק האם המספר הוא פולינדרום,
+        // הפונ' תבדוק האם המספר הוא פלינדרום,
         // ותחזיר תוצאה בוליאנית בהתאם
+        // ניתן להשתמש בפונ' מהסעיפים הקודמים
+        // פולינדרומים:
+        // 12321
+        // 5665
+        // 12345678987654321
+        // 4444
+        // לא פולינדרום:
+        // 1234
+        System.out.println( isPalindrome(12321) );
+        System.out.println( isPalindrome(5665) );
+        System.out.println( isPalindrome(123454321) );
+        System.out.println( isPalindrome(4444) );
+
+        System.out.println( isPalindrome(4234) );
+
+
+
+
     }
 
     // Methods:
@@ -82,5 +105,52 @@ public class Ex180325 {
         }while (num > 0);
 
         return rev;
+    }
+
+    // ex2:
+    public static int reverseNegPos(int num){
+        if (num < 0){   // שלילי
+            num *= -1;
+            int result = reverseNumber(num);
+            return result * -1;
+        }
+        else {  // חיובי או אפס
+            int result = reverseNumber(num);
+            return result;
+        }
+    }
+
+    // ex3:
+    public static boolean isPalindrome(int num){
+        // example: num = 5665
+        int temp = num;
+        int divider = 1;
+        // לרוץ על מס' הספרות ולבנות מחלק גדול
+        while (temp > 10){
+            divider *= 10;
+            temp /= 10;
+        }
+        //System.out.println(divider);
+
+        temp = num;
+        // לרוץ כל עוד המספר הנבדק גדול מ-10
+        while (temp > 10){
+            // לבדוק ספרה ימנית ביותר עם שמאלית ביותר
+            int right = temp % 10;
+            int left = temp / divider;
+
+            // בדיקת שיוויון
+            if (left != right){
+                return false;
+            }
+
+            // לקצץ ספרות קיצוניות משני הצדדים
+            // ולעדכן את המחלק הגדול divider
+            temp %= divider;
+            temp /= 10;
+            divider /= 100;
+        }
+
+        return true;
     }
 }
