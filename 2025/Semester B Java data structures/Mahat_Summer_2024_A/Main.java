@@ -5,12 +5,13 @@ import java.util.Queue;
 import java.util.Random;
 import java.util.Stack;
 
+
 public class Main {
     public static void main(String[] args) {
 
         //String res = true ? "OK" : "Error";
 
-        // ex1a:
+        // ex1a
         Stack<Integer> st = new Stack<>();
         st.push(1);
         st.push(0);
@@ -18,7 +19,7 @@ public class Main {
         System.out.println(isBalanced(st));
 
 
-        // ex1b:
+        // ex1b
         // Complexity = O(n)
 
 
@@ -42,6 +43,9 @@ public class Main {
             7           false   3
             2           true    3
             4           true    3
+
+            Output: Node(3)
+            ספירת ערכים אי זוגיים בשרשרת. התוצאה היא 3 עבור הקלט הנתון.
          */
         // ex5b
         /*
@@ -54,12 +58,62 @@ public class Main {
         /*
             why() - count odd numbers if flag==false
                     count even numbers if flag==true
-                    returns a new node with value of count
+                    returns a new Node with value of count
             what() - הפונקציה רצה על החוליות של השרשרת המקורית.
                     אחרי כל חוליה מקורית עם ערך זוגי - תדחף חוליה חדשה עם ספירת האי זוגיים בהמשך השרשרת
                     אחרי כל חוליה מקורית עם ערך אי זוגי - תדחף חוליה חדשה עם ספירת הזוגיים בהמשך השרשרת
 
          */
+
+
+        // ex6
+        /*
+            c) סיבוכיות הפעולות
+            הפעולה remove רצה בסיבוכיות O(n)
+            מכיוון שהיא עוברת על מחסנית באופן סידרתי, מההתחלה עד הסוף
+
+            הפעולה commonValues גם היא רצה בסיבוכיות O(n^2)
+            שלב א: הפעולה מאחדת שתי מחסניות אל תוך מחסנית יחידה
+            שלב ב: הפעולה פורקת את המחסנית המאוחדת אל תוך מחסנית חדשה,
+            וקוראת לפעולה remove על כל אחד בודד שנפרק.
+            מעבר על n ערכי המחסנית וקריאה לפונ' עם סיבוכיות n על כל אחד מהערכים,
+            מניב סיבוכיות של n*n
+         */
+
+        // ex8a
+        /*
+                2
+                 \
+                  4
+                 /
+                6
+                 \
+                  8
+                 /
+                10
+                  \
+                  12
+         */
+        // ex8b
+        BinNode<Integer> nd6 = new BinNode<>(12);
+        BinNode<Integer> nd5 = new BinNode<>(10); nd5.setRight(nd6);
+        BinNode<Integer> nd4 = new BinNode<>(8); nd4.setLeft(nd5);
+        BinNode<Integer> nd3 = new BinNode<>(6); nd3.setRight(nd4);
+        BinNode<Integer> nd2 = new BinNode<>(4); nd2.setLeft(nd3);
+        BinNode<Integer> nd1 = new BinNode<>(4); nd1.setRight(nd2);
+        System.out.println("Is tree an Ascending List? " + checkAscendingList(nd1));
+
+        // ex9c
+        /*
+            a) הפונ' מריצה לולאה, ומבצעת פעולה על כל איבר במבנה הנתונים.
+            לכן מבנה בגודל n יפיק n פעולות
+            O(n)
+
+            b) אנו מריצים לולאה חיצונית הרצה n פעמים,
+            ובתוכה לולאה פנימית אשר רצה גם היא n פעמים.
+            לכן O(n^2)
+         */
+
 
     }
 
@@ -169,5 +223,132 @@ public class Main {
         }
 
         return chain;
+    }
+
+    // ex6a
+    public static void remove(Stack<Integer> st, int num){
+        Stack<Integer> helper = new Stack<>();
+        while (!st.isEmpty()){
+            if (st.peek() != num){  // peek() = top() אנחנו נשתמש במה"ט בפונ' top
+                helper.push(st.pop());
+            }
+            else {
+                st.pop();
+            }
+        }
+        while (!helper.isEmpty()){
+            st.push(helper.pop());
+        }
+    }
+    // ex6b
+    /*
+        1. נאחד את שתי המחסניות
+        2.1 נשלוף ערכים מתוך המחסנית המאוחדת, אחד אחרי השני
+        2.2 לכל ערך ששלפנו, נפעיל את הפונ' מסעיף א למחיקת כפילויות
+     */
+    public static Stack<Integer> commonValues(Stack<Integer> s1, Stack<Integer> s2){
+        Stack<Integer> temp = new Stack<>();
+        while (!s1.isEmpty()){
+            temp.push(s1.pop());
+        }
+        while (!s2.isEmpty()){
+            temp.push(s2.pop());
+        }
+
+        Stack<Integer> s3 = new Stack<>();
+        while (!temp.isEmpty()){
+            int x = temp.pop();
+            remove(temp, x);
+            s3.push(x);
+        }
+        return s3;
+    }
+
+    // ex8
+    public static boolean checkAscendingList(BinNode<Integer> root){
+        // Initial validations:
+        if (root == null)
+            return false;
+        if (root.getLeft()==null && root.getRight()==null){ // root is leaf
+            return (root.getValue() > 0 && root.getValue() % 2 == 0);
+        }
+
+        // Recursive:
+        return recursiveCheckAscendingList(root);
+
+        // With loop:
+        /*while (true) {
+            // has 2 children:
+            if ( root.hasLeft() && root.hasRight() )
+                return false;
+            // illegal value:
+            if (root.getValue() <= 0 || root.getValue() % 2 != 0)
+                return false;
+
+            BinNode<Integer> parent = root;
+            if (root.hasLeft()){    // has left child
+                root = root.getLeft();
+            }
+            else if (root.hasRight()){    // has right child
+                root = root.getRight();
+            }
+
+            if (parent == root) // root is leaf BUT legal
+                return true;
+            if (parent.getValue() > root.getValue())    // parent is larger than child
+                return false;
+        }*/
+    }
+    public static boolean recursiveCheckAscendingList(BinNode<Integer> root){
+        // has 2 children:
+        if ( root.hasLeft() && root.hasRight() )
+            return false;
+        // illegal value:
+        if (root.getValue() <= 0 || root.getValue() % 2 != 0)
+            return false;
+
+        // Terminating condition:
+        if (root.getLeft()==null && root.getRight()==null){ // root is a leaf
+            /*
+                all nodes to this point have been checked,
+                including current node 'root'. So value is valid.
+             */
+            return true;
+        }
+        else {  // has a single child - keep on digging
+            int parentVal = root.getValue();    // save parent value
+            root = root.hasLeft() ? root.getLeft() : root.getRight(); // move root to child
+            if (parentVal > root.getValue())    // assert child is greater than parent
+                return false;
+            return recursiveCheckAscendingList(root);   // recursive call
+        }
+    }
+
+    // ex9
+    public static int sizeQ(Queue<Integer> q){ // helper method
+        return sizeOfQueue(q);
+    }
+    public static int valueAt(Queue<Integer> q, int pos){
+        int size = sizeQ(q);
+
+        int x = -1;
+        for (int i = 1; i <= size; i++) {
+            if (i == pos){
+                x = q.peek();   // peek() = head()
+            }
+            q.add( q.remove() );    // add() = insert()
+        }
+        return x;
+    }
+    public static Queue<Integer> merge (Queue<Integer>q1, Queue<Integer>q2){
+        int size = sizeQ(q2);
+        Queue<Integer> q3 = new ArrayDeque<>();
+
+        while (!q1.isEmpty()){
+            q3.add(q1.remove());
+            q3.add(valueAt(q2, size));
+            size--;
+        }
+        return q3;
     }
 }
