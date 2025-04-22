@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Simple Get Requests</h1>
+    <div>
+            <a href="./get_target1.php?msg=hello_world">click me</a>
+    </div>
+    <hr>
+
+    <div>
+        <form action="./greetings.php" method="get">
+            <input type="text" name="myName"> <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <hr>
+
+    <div>
+        <form action="./present_image.php" method="get">
+            <input placeholder="Enter image url" type="text" name="imgURL"> <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <hr>
+
+    <div>
+        <form action="./bg_color.php" method="get">
+            <input type="color" name="bgColor"> <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <hr>
+
+    <div>
+        <h3>XSS - Cross Site Scripting</h3>
+        <p>
+            Without any proper safeguards, <br>
+            Sending text through URL and print it to screen <br>
+            on the next page, opens the door to XSS. <br>
+            We should use built-in functions to protect our page <br>
+            from such an attack.
+        </p>
+        <form action="./run_script.php" method="get">
+            <input placeholder="Enter script" type="text" name="scrpt"> <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
