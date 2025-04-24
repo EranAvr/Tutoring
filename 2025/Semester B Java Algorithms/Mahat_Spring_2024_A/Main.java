@@ -54,7 +54,7 @@ public class Main {
         // הפונ' ממומשות למטה
 
         // ex4:
-        // TODO לפתור
+        // ממומש למטה
 
 
         // ex5a:
@@ -147,6 +147,12 @@ public class Main {
 
         }
 
+        // ex7
+        // מימוש למטה
+
+        // ex8
+        // מימוש למטה
+
     }
 
     // Methods:
@@ -188,5 +194,123 @@ public class Main {
                 arr[i] = rnd.nextInt(a, pivot);
             }
         }
+    }
+
+    // ex4
+    private String name; // שם
+    private double[] height; // מדידת גובה חודשית
+    private double[] weight; // מדידת משקל חודשית
+
+    public void setData(int month, double h, double w){
+        // month -> 1 to 12
+        // indices -> 0 to 11
+        this.height[month-1] = h;
+        this.weight[month-1] = w;
+    }
+    public double avgWeight(){
+        // סכום המשקלים
+        double sum = 0;
+        for (int i=0; i<weight.length; i++){
+            sum += weight[i];
+        }
+        // חלוקה
+        return sum / weight.length;
+    }
+    public double getLastBmi(){
+        int index = 0;
+        for (int i = height.length-1; i >= 0; i--){
+            if(height[i] > 0){  // מצאנו ערך מדידה שהתקיימה
+                index = i;
+                break;
+            }
+        }
+
+        double w = this.weight[index];
+        double h = this.height[index];
+
+        double BMI = w / (h*h);
+        return BMI;
+    }
+
+
+    // ex7a
+    private int code;
+    private int year;
+    private boolean isHebrew;
+
+    public boolean oldBook(int year1){
+        int diff = year1 - this.year;
+        /*if (diff >= 10){
+            return true;
+        } else {
+            return false;
+        }*/
+        return diff >= 10;
+    }
+    // ex7b
+    /*
+        Book b1 = new Book(1122, 1998, false);
+        Book b2 = new Book (2233, 2010, true);
+
+        b1.oldBook      b1.getIsHebrew()    b1.oldBook(2014)&& !b1.getIsHebrew()
+        true            false               true
+
+        Output: "###"
+
+        b2.oldBook
+        false
+        b2.getIsHebrew()
+        true
+
+        Output: "???"
+     */
+
+    // ex7c
+    // נוסיף את שורת הקוד הבאה
+    // b1.setIsHebrew(true);
+
+
+    // ex8a
+    public static boolean isItBrothers(int num1, int num2){
+        // שיטות שקולות להמרת מס' שלם אל מחרוזת:
+        /*
+        String str1 = Integer.toString(num1);
+        String str1 = String.valueOf(num1);
+        String str1 = "" + num1;
+        */
+        boolean numOfDigits = Integer.toString(num1).length() == Integer.toString(num2).length();
+        int sum1 = 0, sum2 = 0;
+        while (num1 > 0){
+            sum1 += num1 % 10;
+            num1 /= 10;
+        }
+        while (num2 > 0){
+            sum2 += num2 % 10;
+            num2 /= 10;
+        }
+
+        /*if (numOfDigits && sum1 == sum2){
+            return true;
+        } else {
+            return false;
+        }*/
+        return numOfDigits && sum1 == sum2;
+    }
+
+    // ex8b
+    // arr = [12, 34, 56, 346, 17]
+    public static boolean isItBrothers(int[] arr){
+        for (int i=0; i<arr.length; i++){   // אינדקס i עבור ערך לבדיקה
+
+            for (int j = 0; j < arr.length; j++) {  // אינדקס j עבור מתמודדים למספרים אחים
+                if ( !isItBrothers(arr[i], arr[j]) ){    // אם נמצא כשלון - נחזיר false
+                    return false;
+                }
+            }
+        }
+
+        // אם עברנו את כל הבדיקות בהצלחה - המערך תקין
+        // כל המספרים אחים זה של זה
+        return true;
     }
 }
