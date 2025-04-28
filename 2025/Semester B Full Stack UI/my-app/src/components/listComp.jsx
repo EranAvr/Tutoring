@@ -60,7 +60,7 @@ export default function ListComponent(props){
                     items.map( (value, index) => 
                     <div key={index} style={styles.listItem}>
                         <div>
-                            {editIndex !== null && editIndex === index
+                            {editIndex === index
                                 ?
                                 <input value={editText} onChange={({target})=>{setEditText(target.value)}}/>
                                 :
@@ -68,7 +68,7 @@ export default function ListComponent(props){
                             }
                         </div>
                         <div>
-                            {editIndex !== null && editIndex === index
+                            {editIndex === index
                             ?
                             <button onClick={ () => {handleSave()} } style={{backgroundColor: "green"}}>save</button>
                             :

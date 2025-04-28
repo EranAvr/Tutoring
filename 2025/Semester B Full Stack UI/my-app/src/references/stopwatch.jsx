@@ -1,20 +1,19 @@
 import { useRef, useState } from "react";
 
-export default function StopWatch(){
+function StopWatch(){
     const [count, setCount] = useState(0);
     const intervalRef = useRef(0);
 
     
-    function handleStartBtn(){
+    function handleStart(){
         if (intervalRef.current == 0){
             intervalRef.current = setInterval(
-                () => {setCount( (cnt)=>cnt+1 ); console.log(count);
-                }, 1000
+                () => {setCount( (cnt)=>cnt+1 )}, 1000
             );
         }
     }
 
-    function handleStopBtn(){
+    function handleStop(){
         clearInterval(intervalRef.current);
         intervalRef.current = 0;
     }
@@ -24,9 +23,11 @@ export default function StopWatch(){
             <h2>Stopwatch</h2>
             <div>Seconds: {count}</div>
             <div>
-                <button onClick={handleStartBtn}>Start</button>
-                <button onClick={handleStopBtn}>Stop</button>
+                <button onClick={handleStart}>Start</button>
+                <button onClick={handleStop}>Stop</button>
             </div>
         </div>
     );
 }
+
+export default StopWatch;
