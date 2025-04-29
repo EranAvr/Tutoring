@@ -153,6 +153,23 @@ public class Main {
         // ex8
         // מימוש למטה
 
+
+        // ex9
+        // מימוש למטה
+
+        // ex10a
+        /*
+            הפונקציה מקבלת מערך, ופרמטרים x ו-k
+            הפונקציה מחפשת את הערך x במערך החלק מהאינדקס k.
+            אם נמצא- תחזיר את האינדקס
+            אחרת- תחזיר -1
+         */
+        // arr = [1,1,1,1,1,5]
+        // נדרש מערך שמכיל את הערך 5 באינדקס 5
+        // אבל לא מכיל את הערך 3 אחרי האינדקס k=5
+        // arr = [1,1,3,1,1,5]
+
+
     }
 
     // Methods:
@@ -312,5 +329,26 @@ public class Main {
         // אם עברנו את כל הבדיקות בהצלחה - המערך תקין
         // כל המספרים אחים זה של זה
         return true;
+    }
+
+
+    // ex9c
+    public static void printByMonth(Worker[] arr, int month){
+        for (int i=0; i < arr.length; i++){
+            if (arr[i].getBirthday().getMonth() == month){
+                System.out.println( arr[i].getName() );
+            }
+        }
+    }
+    // ex9d
+    public static String youngest(Worker[] arr){
+        Worker minWorker = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if ( minWorker.getBirthday().after(arr[i].getBirthday()) ){
+                minWorker = arr[i];
+            }
+        }
+
+        return minWorker.getName();
     }
 }

@@ -15,12 +15,23 @@ public class Student {
         this.gender = "";
         this.grades = new float[5];
     }
+    public Student(int a){}
+    public Student(int a, float b){}
+    public Student(float a, int b){}
+
+    public Student(Student student2){
+        this.name = student2.name;
+        this.age = student2.age;
+        this.gender = student2.gender;
+        this.grades = student2.grades;  // Not good copy! אנחנו לא משכפלים מערך אלא רק מעבירים רפרנס
+    }
 
     // getters and setters:
     public String getName(){
         return this.name;
     }
     public void setName(String _name){
+        System.out.println("this=" + this);
         this.name = _name;
     }
 
