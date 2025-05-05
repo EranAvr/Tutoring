@@ -1,0 +1,9 @@
+.light {
+    background-color: aliceblue;
+    color: black;
+}
+
+.dark {
+    background-color: rgb(9, 0, 53);
+    color: aquamarine;
+}
