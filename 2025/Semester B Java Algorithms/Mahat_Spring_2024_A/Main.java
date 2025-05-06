@@ -160,7 +160,7 @@ public class Main {
         // ex10a
         /*
             הפונקציה מקבלת מערך, ופרמטרים x ו-k
-            הפונקציה מחפשת את הערך x במערך החלק מהאינדקס k.
+            הפונקציה מחפשת את הערך x במערך החלקי מהאינדקס k.
             אם נמצא- תחזיר את האינדקס
             אחרת- תחזיר -1
          */
@@ -169,8 +169,65 @@ public class Main {
         // אבל לא מכיל את הערך 3 אחרי האינדקס k=5
         // arr = [1,1,3,1,1,5]
 
+        // ex10b
+        /*
+            הפונקציה where מחפשת את ערכי
+            מערך b בתוך המערך הראשון a.
+            ברגע שערך מ-b לא נמצא ב-a
+            או (!!) לחלופין לא מופיע במערך  a  החלר ב-k והלאה - החיפוש נכשל ויחזיר false.
+            אם כל הערכים מ-b נמצאים ב-a ומופיעים אחריהם,
+            החיפוש יסתיים יחזיר true.
+         */
+        // תוצאת הזימון של הקריאה where(a,b) תחזיר false
+        /*
+            i   b[i]    k+1     k
+            ---------------------
+                                -1
+            0   2       0       0
+            1   4       1       1
+            2   0       2       3
+            3   9       4       -1
 
+            return false
+         */
+
+        /*
+        -----------------------------------------------
+        // שאלה לא קשורה
+        String[] arr;
+        int num = 5;
+        for (int i=0; i<arr.length; i++){
+            if(arr[i].length() == num){
+            }
+        }
+        -----------------------------------------------
+         */
+
+        // ex10c
+        /*
+            a = [2,4,9,1,2,0]
+            b = [2,4,0,9,3]
+         */
+
+        // ex11
+        // מימוש למטה
+        // a)
+        Main m = new Main();
+        System.out.println(m.NumOfDays(22, 1));
+        System.out.println(m.NumOfDays(22, 3));
+        System.out.println(m.NumOfDays(1, 5));
+        // b)
+        System.out.println(m.Weekday(1, 1));
+        System.out.println(m.Weekday(8, 1));
+        System.out.println(m.Weekday(1, 2));
+        System.out.println(m.Weekday(22, 3));
     }
+
+
+
+
+
+
 
     // Methods:
 
@@ -350,5 +407,35 @@ public class Main {
         }
 
         return minWorker.getName();
+    }
+
+    // ex11
+    int[] days = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    public int NumOfDays(int day, int month){
+        int sum = 0;
+        month--;  // תיקון ממספר חודש אל אינדקס החודש במערך
+        for (int i=0; i<month; i++){
+            sum += days[i];
+        }
+        sum += (day - 1);
+
+        return sum;
+    }
+    /*
+    public int Weekday(int day, int month){
+        int totalDays = NumOfDays(day, month);
+        while (totalDays > 7){
+            totalDays -= 7;
+        }
+        int finalDay = (2 + totalDays) % 7;
+
+        return finalDay;
+    }*/
+
+    public int Weekday(int day, int month){
+        int anchor = 2; // day in a week for date: 1.1.2024
+
+        int daysPassed = NumOfDays(day, month);
+        return (anchor + daysPassed % 7) % 7;
     }
 }
