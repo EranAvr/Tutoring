@@ -18,6 +18,8 @@
         <a href="./index.php">Home</a>
         <a href="./profile.php">My profile</a>
         <a href="#">About</a>
+        <a href="./header_page.php">Header-Page</a>
+        <a href="./login_page.html">Login</a>
         <a href="./make_disconnect.php">Disconnect</a>
         <span> <?php 
         if(isset($_SESSION['username']) && $_SESSION['username'] != ""){
