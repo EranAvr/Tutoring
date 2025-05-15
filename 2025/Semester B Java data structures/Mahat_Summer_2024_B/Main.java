@@ -31,6 +31,80 @@ public class Main {
         // ex3b
         // O(n)
 
+
+        // ex4c
+        MailItem[] items = {
+                new MailItem("Avi", "", 100),
+                new MailItem("Bobby", "", 150),
+                new MailItem("John", "", 120),
+        };
+        System.out.println(MailItem.bigSender(items));
+
+        // ex5a
+        /*
+            הפונקציה what סופרת את מס' החוליות בשרשרת,
+            ומחזירה אותו.
+         */
+        // ex5b
+        /*
+            הפונקציה why מקבלת שתי שרשראות, ch1 ו-ch2.
+            אם ch1 ארוכה יותר -
+            הפונ' משווה סוף עם סוף (של שתי השרשראות)
+            אם ch2 ארוכה יותר -
+            הפונ' משווה התחלה עם התחלה
+         */
+        /*
+        for loop:
+            len1    len2    len1-len2   i   ch1
+            -----------------------------------
+            7       4        3              10
+                                        0   7
+                                        1   14
+                                        2   5
+                                        3   -
+        while loop:
+            ch1     ch2     ch1.getValue()!=ch2.getValue()
+            5       5       false
+            7       7       false
+            2       1       true
+
+            return false
+
+         */
+        // ex5c
+        /*
+            נרצה לתת שרשרת ch3 שהיא בדיוק הסוף של ch1, כלומר:
+            ch3 = 5 -> 7 -> 2 -> 4
+         */
+        // ex5d
+        /*
+            נרצה לתת שרשרת ch4 שהיא בדיוק ההתחלה של ch1,
+            כי אמרנו שאם השרשרת הראשונה קצרה יותר - אז משווים התחלה מול התחלה.
+            דוגמא:
+            ch4 = 10 -> 7 -> 14 -> 5
+         */
+        // ex5e
+        /*
+            הפונ' what(ch) מחזירה את אורך השרשרת
+
+            הפונ' why(ch1, ch2) משווה את סוף השרשראות זו עם זו
+            אם השרשרת ch1 ארוכה יותר,
+            או לחלופין משווה התחלה עם התחלה בין שתי השרשראות
+            אם השרשרת ch1 קצרה יותר.
+         */
+
+        // ex7
+        Deck deck = new Deck();
+        Domino d4 = new Domino(3,4);
+        Domino d3 = new Domino(1,3);
+        Domino d2 = new Domino(5,1);
+        Domino d1 = new Domino(0,5);
+        deck.setHead(new Node<>(d1, new Node<>(d2, new Node<>(d3, new Node<>(d4)))));
+
+        Domino test1 = new Domino(3,3);
+        Domino test2 = new Domino(6,5);
+        System.out.println(Deck.addStone(deck, test1));
+        System.out.println(Deck.addStone(deck, test2));
     }
 
 
@@ -176,4 +250,37 @@ public class Main {
         }
         return true;
     }
+
+    // ex6a
+    public void one(Queue<Integer> q, int k){
+        Queue<Integer> temp = new ArrayDeque<>();
+        while (!q.isEmpty()){
+            temp.add(q.remove());
+        }
+        while (!temp.isEmpty()){
+            int num = temp.remove();
+            for (int i = 0; i < k; i++) {
+                q.add(num);
+            }
+        }
+    }
+    // ex6b
+    public void two(Queue<Integer> q, int k){
+        int[] numbers = new int[q.size()];
+
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = q.remove();
+        }
+
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < numbers.length; j++) {
+                q.add(numbers[i]);
+            }
+        }
+    }
+    // ex6c
+    /*
+        one: O(n*k)
+        two: O(k*n)
+     */
 }
