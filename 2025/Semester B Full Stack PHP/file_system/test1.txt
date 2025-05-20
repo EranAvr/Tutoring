@@ -1,0 +1,4 @@
+Hello World!
+My name is Eran.
+This is a testing file.
+Some chars: @ # & % *!^
