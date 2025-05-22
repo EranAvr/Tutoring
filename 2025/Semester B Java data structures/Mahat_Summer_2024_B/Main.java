@@ -100,12 +100,58 @@ public class Main {
         Domino d2 = new Domino(5,1);
         Domino d1 = new Domino(0,5);
         deck.setHead(new Node<>(d1, new Node<>(d2, new Node<>(d3, new Node<>(d4)))));
+        //Node<Domino> head = new Node(new Node<>(d1, new Node<>(d2, new Node<>(d3, new Node<>(d4)))));
 
         Domino test1 = new Domino(3,3);
         Domino test2 = new Domino(6,5);
         System.out.println(Deck.addStone(deck, test1));
         System.out.println(Deck.addStone(deck, test2));
+
+
+        // ex9c:
+        /*
+            a) isPyramid() = O(n^2)
+                הגודל N מבטא את גודל המספר הגדול ביותר
+            b) isPyramidStack() = O(n)
+                הערך n מבטא את גודל המחסנית - מס' הערכים שבה
+         */
+
+        // ex10a
+        // C -> B -> A
+        // C <>-- A
+        // ex10b
+        /*
+            Static memory:
+            countA=7     countB=4     countC=2
+            ---------------------------------------------
+                arr[0]  arr[1]  arr[2]  arr[3]  arr[4]
+            x   13      5       2       3       0
+            y   -       10      7       3       5
+            A   -       -       A{x=9}  A{x=6}  -
+         */
+        // ex10c
+        /*
+            A objects: 7
+            B objects: 4
+            C objects: 2
+         */
+        // ex10d
+        /*
+            A:13
+            B:A:5:10
+            C:B:A:2:7[A:9]
+            C:B:A:3:3[A:6]
+            B:A:0:5
+         */
     }
+
+
+
+
+
+
+
+
 
 
     // --------------- Methods ---------------
@@ -283,4 +329,51 @@ public class Main {
         one: O(n*k)
         two: O(k*n)
      */
+
+
+    // ex8
+    public static boolean isArranged(BinNode<Integer> root){
+        if (root == null){
+            return true;
+        }
+
+        if ((root.hasLeft() || root.hasRight()) && root.getValue()%2!=0)    // found inner node with odd value
+            return false;
+        if (!root.hasLeft() && !root.hasRight() && root.getValue()%2==0)    // found leaf node with even value
+            return false;
+
+        if (root.hasLeft() && root.getLeft().getValue() < root.getValue())  // found smaller left child
+            return false;
+        if (root.hasRight() && root.getRight().getValue() < root.getValue())  // found smaller right child
+            return false;
+
+
+        return isArranged(root.getLeft()) && isArranged(root.getRight());
+    }
+
+    // ex9a
+    public static Stack<Integer> buildPyramid(int N){
+        Stack<Integer> pyramid = new Stack<>();
+        while (N > 0){
+            for (int j = 0; j < N; j++) {
+                pyramid.push(N);
+            }
+            N--;
+        }
+        return pyramid;
+    }
+    // ex9b
+    public static boolean isPyramidStack(Stack<Integer> s){
+        int val = 1;
+        while (!s.isEmpty()){
+            for (int j = 0; j < val; j++) {
+                if (s.pop() != val)
+                    return false;
+                if (s.isEmpty())
+                    return false;
+            }
+            val++;
+        }
+        return true;
+    }
 }

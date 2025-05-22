@@ -3,6 +3,7 @@ package Mahat_Summer_2024_B;
 public class Deck
 {
     private Node<Domino> head;
+
     public Deck()
     {
         this.head = null;
