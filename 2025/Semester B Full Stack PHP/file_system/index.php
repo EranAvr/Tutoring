@@ -10,6 +10,7 @@
     <nav>
         <a href="request_file.php">Reader</a>
         <a href="create_file.html">Writer</a>
+        <a href="upload_form.html">Upload file</a>
     </nav>
 </body>
 </html>
