@@ -166,6 +166,47 @@ public class Main {
             t2.setIsPossible(true);
          */
 
+        // ex8d
+        /*
+            a) O(n) אורך המספר הוא n ועוברים פעם אחת על כל ספרה
+            b) O(n^2)   אורך המספרים הוא n ועבורים על כל ספרה של הראשון מול כל ספרה של השני
+            c) O(n^2)   אורך המערך הוא n ועוברים על כל התאים מול כל התאים
+         */
+
+        // ex10
+        /*
+        1)
+            arr = {12, 0, -344, -46, 670, 0}
+
+            i   k   temp
+            -------------
+                0   [0,0,0,0,0,0]
+     loop 1:
+            0   0
+            1   0
+            2   0   [-344,0,0,0,0,0]
+            3   1   [-344,-46,0,0,0,0]
+            4   2
+            5   2
+     loop 2:
+            0   2   [-344,-46,12,0,0,0]
+            1   3   [-344,-46,12,0,0,0]
+            2   4
+            3   4
+            4   4   [-344,-46,12,0,670,0]
+            5   5   [-344,-46,12,0,670,0]
+     loop 3:
+            העתקה של תאי temp אל תאי arr בהתאמה
+            תא אל תא על פי הסדר
+
+            Result:
+            arr = [-344,-46,12,0,670,0]
+       2)
+            הפעולה why מסדרת מחדש את המערך arr
+            עם שליליים בהתחלה (משמאל)
+             וחיוביים כולל 0 בסוף (מימין)
+         */
+
     }
 
     // Methods:
@@ -227,5 +268,65 @@ public class Main {
             total += counters[i];
         }
         System.out.println("Total = " + total);
+    }
+
+    // ex8a
+    public static boolean exist(int num, int digit){
+        String myNum = Integer.toString(num);
+        //String myNum2 = "" + num;
+
+        // גירסא עם char
+        /*for (int i=0; i<myNum.length(); i++){
+            if (myNum.charAt(i) == ('0'+digit))
+                return true;
+        }*/
+
+        // גירסא עם String
+        /*String d = Integer.toString(digit);
+        for (int i=0; i<myNum.length(); i++){
+            String currentDig = "" + myNum.charAt(i);
+            if (currentDig.equals(d))
+                return true;
+        }*/
+
+        // גירסא מספרית int
+        while (num > 0){
+            if (num % 10 == digit)
+                return true;
+            num /= 10;
+        }
+
+        return false;
+    }
+    // ex8b
+    public static boolean isStrangers(int num1, int num2){
+        /*String n1 = Integer.toString(num1);
+        String n2 = Integer.toString(num2);
+
+        for (int i = 0; i < n1.length(); i++) {
+            for (int j = 0; j < n2.length(); j++) {
+                if (n1.charAt(i) == n2.charAt(j))   // מצאנו ספרות משותפות, לא זרים
+                    return false;
+            }
+        }
+        return true;*/
+
+        while (num2 > 0){
+            if ( exist(num1, num2%10) ) // הספרה נמצאה - לא זרים
+                return false;
+            num2 /= 10;
+        }
+        return true;
+    }
+    //ex8c
+    public static boolean isItStrangers(int[] arr){
+        // arr = {3333, 55555, 333333, 444}
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i+1; j < arr.length; j++) {
+                if ( !isStrangers(arr[i], arr[j]) )
+                    return false;
+            }
+        }
+        return true;
     }
 }
