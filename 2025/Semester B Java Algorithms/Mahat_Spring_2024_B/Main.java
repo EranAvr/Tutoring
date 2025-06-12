@@ -207,7 +207,65 @@ public class Main {
              וחיוביים כולל 0 בסוף (מימין)
          */
 
+
+        // ex11a
+        /*
+            s               if      else-if     else-else-if
+            ------------------------------------------------
+            aMrAdDYrM       true
+            MrAdDYrM        false   false       false
+            rAdDYr          true
+            AdDYr           false   true
+            AdDY            false   false       true
+
+            Output:
+            return false
+
+            הפונ' בודקת האם האותיות הגדולות (בלבד!)
+            מקיימות פולינדרום.
+            כל שאר התוים במחרוזת קוצצו ממנה.
+         */
+        // ex11b
+        /*
+            s = "ABCCBA"
+            s = "123321"
+            s = "AAAAAA"
+            s = "@#$$#@"
+         */
+        // ex11c
+        /*
+            הפעולה where בונה מחרוזת חדשה עם כל האותיות
+            הגדולות של המחרוזת המקורית s (על פי סדר)
+            ובודקת האם הן פולינדרום (בעזרת הפונ' what)
+
+            הפעולות where ו-why שקולות לחלוטין!
+         */
+
+        // ex12a
+        // מימוש למטה
+        // ex12b
+        /*
+            סיבוכיות הפעולה המבוקשת היא:
+            O(n)
+            נשים לב!!
+            הקוד מחולק לכמה פעולות עזר,
+            כשכל אחת מהן רצה ב O(n)
+            אבל (!!) ה-n של כל פעולה מוגדר אחרת
+
+            הפרמטר n של isSuperBalanced הוא מס' השורות בטבלה
+            הפרמטר n של isMinMaxBalanced הוא מספר התאים בשורה
+            הפרמטר n של isNumBalanced הוא כמות הספרות של מספר
+         */
+
     }
+
+
+
+
+
+
+
+
 
     // Methods:
     public static boolean isBalanced(int[] arr){
@@ -326,6 +384,47 @@ public class Main {
                 if ( !isStrangers(arr[i], arr[j]) )
                     return false;
             }
+        }
+        return true;
+    }
+
+    // ex12
+    // פונקציות עזר:
+    public static boolean isNumBalanced(int num){
+        int sumOdd = 0;
+        int sumEven = 0;
+
+        while (num > 0){
+            int digit = num % 10;   // קח את הספרה הימנית ביותר
+
+            if (digit % 2 ==0)  // זוגי
+                sumEven += digit;
+            else // אי-זוגי
+                sumOdd += digit;
+
+            num /= 10;  // מקצצים את הספרה הימנית ביותר
+        }
+
+        return sumEven == sumOdd;
+    }
+    public static boolean isMinMaxBalanced(int[] arr){
+        int max = arr[0];
+        int min = arr[0];
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max)   // מצאנו מספר גדול יותר מהמקסימלי
+                max = arr[i];
+            if (arr[i] < min)   // מצאנו מספר קטן יותר מהמינימלי
+                min = arr[i];
+        }
+
+        return isNumBalanced(max) && isNumBalanced(min);
+    }
+    // זו הפונ' שבעצם ביקשו מאיתנו:
+    public static boolean isSuperBalanced(int[][] matrix){
+        for (int i = 0; i < matrix.length; i++) {
+            if (!isMinMaxBalanced( matrix[i] )) // בדיקה על שורה בודדת מתוך הטבלה
+                return false;
         }
         return true;
     }
