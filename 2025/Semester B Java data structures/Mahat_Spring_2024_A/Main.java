@@ -57,8 +57,74 @@ public class Main {
 
         // ex6a
         // מימוש למטה
+        // ex6c
+        /*
+            סעיף א': O(n)
+            סעיף ב': O(n^2)
+         */
+
+        // ex7b
+        /*
+            סיבוכיות: O(n)
+         */
+
+        // ex9a
+        /*
+                arr[0]  arr[1]  arr[2]  arr[3]  arr[4]  arr[5]
+            n1  2       1       3               1
+            n2  -       4       6               4
+            ref                         arr[0]          arr[1]
+
+            Printing I:
+            i   output
+            0   "One: n1=2"
+            1   "One: n1=1 Two: n2=4"
+            2   "One: n1=3 Two: n2=6"
+            3   "One: n1=2"
+            4   "One: n1=1 Two: n2=4"
+            5   "One: n1=1 Two: n2=4"
+
+            After update:
+                arr[0]  arr[1]  arr[2]  arr[3]  arr[4]  arr[5]
+            n1  36      32      15              7
+            n2  -       128     30              28
+            ref                         arr[0]          arr[1]
+
+            Printing II:
+            i   output
+            0   "One: n1=36"
+            1   "One: n1=32 Two: n2=128"
+            2   "One: n1=15 Two: n2=30"
+            3   "One: n1=36"
+            4   "One: n1=7 Two: n2=28"
+            5   "One: n1=32 Two: n2=128"
+
+         */
+        // ex9b
+        /*
+            כן. הפלט השתנה.
+
+            הסיבה היא, שבגלל שההדפסה באה באותה לולאה
+            של העדכון, ומיד לאחר כל עדכון - היא
+            תדפיס את הערך המיידי שלו.
+
+            .יש כמה תאים שמצביעים אל אותו אובייקט
+            כאשר היתה לולאה נפרדת לעדכונים, כל העדכונים נעשו על האובייקט
+            לפני ההדפסות, ולכן קיבלנו הדפסות זהות לכמה רפרנסים.
+
+            בקוד החדש, בגלל שמדפיסים לאחר כל עדכון,
+            רפרנסים שונים אל אותו אובייקט ידפיסו תוצאות שונות.
+         */
 
     }
+
+
+
+
+
+
+
+
 
 
     // Methods:
@@ -108,12 +174,110 @@ public class Main {
     }
 
     // ex6a
+    public static int size(Queue<Integer> q){
+        return 0;
+    }
     public static boolean startWith(Queue<Integer> q1,
                                     Queue<Integer> q2){
+        if (size(q1) > size(q2))
+            return false;
         while (!q1.isEmpty()){
             if (q1.remove() != q2.remove())
                 return false;
         }
         return true;
+    }
+    // ex6b
+    public static boolean duplication(Queue<Integer> q1,
+                                      Queue<Integer> q2){
+
+        /*Queue<Integer> temp = new ArrayDeque<>();
+        while (!q2.isEmpty() && !q1.isEmpty()){ // O(n)
+            int n = q1.remove();
+            temp.add(n);
+
+            if (q2.remove() != n)
+                return false;
+            if (q1.isEmpty()){
+                while (!temp.isEmpty())
+                    q1.add(temp.remove());
+            }
+        }
+        return true;*/
+
+        // copy q1 into an array
+        int[] arr1 = new int[size(q1)];
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = q1.remove();
+        }
+        // check q2 repeatedly
+        int idx = 0;
+        while (!q2.isEmpty()){
+            if (q2.remove() != arr1[idx % arr1.length])
+                return false;
+            idx++;
+        }
+        return true;
+    }
+
+    // ex7a
+    public static boolean isUpDown(Node<Integer> chain){
+        boolean up = false;
+        boolean down = false;
+        Node<Integer> pos = chain;
+
+        while (pos.getNext() != null && pos.getNext().getValue() > pos.getValue()){
+            pos = pos.getNext();
+            if (!up)
+                up = true;
+        }
+
+        while (pos.getNext() != null && pos.getNext().getValue() < pos.getValue()){
+            pos = pos.getNext();
+            if (!down)
+                down = true;
+        }
+
+        return up && down && pos.getNext() == null;
+    }
+
+    // ex8
+    // פונקציות עזר:
+    // count number of nodes:
+    public static int btSize(BinNode<Integer> bt){
+        if (bt == null)
+            return 0;
+
+        int count = 0;
+        count += btSize(bt.getLeft());
+        count += btSize(bt.getRight());
+        return count + 1;
+    }
+    // calc sum of nodes:
+    public static double btSum(BinNode<Integer> bt){
+        if (bt == null)
+            return 0;
+
+        int sum = 0;
+        sum += btSize(bt.getLeft());
+        sum += btSize(bt.getRight());
+        return sum + bt.getValue();
+    }
+    // calc total avg of tree:
+    public static double btAvg(BinNode<Integer> bt){
+        return btSum(bt) / btSize(bt);
+    }
+    // זו הפונקציה שלמעשה עונה על השאלה
+    public static void printUnderAvg(BinNode<Integer> bt){
+        double avg = btAvg(bt);
+        traverse(bt, avg);
+    }
+    public static void traverse(BinNode<Integer> bt, double avg){
+        if (bt == null)
+            return;
+        traverse(bt.getLeft(), avg);
+        traverse(bt.getRight(), avg);
+        if (bt.getValue() < avg)
+            System.out.println(bt.getValue());
     }
 }
