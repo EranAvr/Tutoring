@@ -93,6 +93,65 @@ public class Main {
             לכן קיבלנו התנהגות של לולאה בתוך לולאה.
          */
 
+        // ex6a
+        /*
+            a) num = 1777
+            b)  הפונקציה סופרת כמה פעמים הספרה dig
+                מופיעה בתוך המספר הארוך num
+         */
+        // ex6b
+        /*
+            a)
+            arr = {24, 34783, 1245, 68, 468, 9445}
+            two (arr, 4) = ?
+
+            i   arr[i]  res
+            ---------------
+                        0
+            0   24      1
+            1   34783   2
+            2   1245    3
+            3   68      3
+            4   468     4
+            5   9445    6
+
+            return = 6
+
+            b)  הפעולה two סופרת כמה פעמים
+                הספרה dig נמצאת בכל מספרי המערך
+         */
+        // ex6c
+        /*
+            a)  arr = [1, 22, 333, 4444, 55555, 666666]
+            b)  הפעולה three
+                עוברת על כל הספרות 0-9
+                ומחזירה את הספרה שהופיעה הכי הרבה פעמים
+                במערך arr.
+         */
+
+        // ex7a
+        /*
+            str = "@@@a@A@@@@@"
+            return = 9
+         */
+        // ex7b
+        /*
+            str = "###$$$"
+         */
+        // ex7c
+        /*
+            str = "AAaa&&"
+            output = %0#1#2?3?%
+            return = 2
+         */
+        // ex7d
+        /*
+            הפעולה סופרת כמה תוים במחרוזת הם לא אותיות,
+            לא גדולות ולא קטנות.
+            עבור אות גדולה- יודפס האינדקס ו#
+            עבור אות קטנה- יודפס האינדקס ו?
+         */
+
     }
 
 
@@ -122,4 +181,40 @@ public class Main {
         return true;
     }
 
+    // ex8a
+    public static boolean isPalindrom(int[] arr){
+        for (int i = 0; i < arr.length / 2; i++) {
+            if(arr[i] != arr[arr.length-1 - i]){
+                return false;
+            }
+        }
+        return true;
+    }
+    // ex8b
+    public static boolean isEvenPalindrom(int[] arr){
+        int i = 0;
+        int j = arr.length-1;
+
+        while (i<j) {
+            while (i < j && arr[i] % 2 != 0) // כל עוד לא מצאנו ב-i ערך זוגי
+                i++;
+            while (i < j && arr[j] % 2 != 0) // כל עוד לא מצאנו ב-j ערך זוגי
+                j--;
+            if (arr[i] != arr[j])
+                return false;
+            else {
+                i++;
+                j--;
+            }
+        }
+        return true;
+    }
+    // ex8c
+    /*
+        a) O(n)
+        b) O(n)
+            כי בודקים כל תא במערך פעם אחת ויחידה,
+            ולא חוזרים אליו יותר.
+            יש n תאים במערך.
+     */
 }
