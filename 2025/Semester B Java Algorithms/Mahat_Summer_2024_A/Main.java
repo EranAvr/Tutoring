@@ -273,6 +273,33 @@ public class Main {
             סעיפים אלה.
             לכן, בשני הסעיפים, התשובה היא כן.
          */
+        // ex11b
+        /*
+            arr = { 3458 -45 7681 -875 6 13571 43 }
+
+            i   cur     temp1   pos1    temp2   pos2
+                        3458    0       3458    0
+            1   45      3458    0       3458    0
+            2   7681    3458    0       7681    2
+            3   875     3458    0       7681    2
+            4   6       3458    0       7681    2
+            5   13571   13571   5       7681    2
+            6   43      13571   5       7681    2
+
+            return: false
+         */
+        // ex11c
+        /*
+            הפונ' secret בודקת
+            האם המספר הארוך ביותר במערך (מבחינת כמות ספרות)
+            הוא גם עם סכום הספרות הגדול ביותר.
+         */
+
+        // ex12b
+        /*
+            O(n)
+            הפרמטר n מייצג את מס' השורות במטריצה
+         */
 
     }
 
@@ -341,4 +368,34 @@ public class Main {
      */
 
     // ex9c
+
+    // ex12
+    public static boolean isSuper(int num){
+        int count = 0;
+        while (num > 0){
+            int digit = num % 10;
+            if (digit % 2 == 0)
+                count++;
+            else
+                return false;
+
+            num /= 10;
+        }
+        return count % 2 == 0;
+    }
+    public static boolean isSuper(int[] arr){
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (isSuper(arr[i]))
+                count++;
+        }
+        return count > arr.length/2 && arr.length % 2 == 0;
+    }
+    public static boolean isSuper(int[][] mat){
+        for (int i = 0; i < mat.length; i++) {
+            if ( !isSuper(mat[i]) )
+                return false;   // אם מצאנו שורה שאיננה סופר
+        }
+        return mat[0].length % 2 == 0;
+    }
 }
