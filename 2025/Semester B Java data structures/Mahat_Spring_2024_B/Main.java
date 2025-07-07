@@ -1,6 +1,7 @@
 package Mahat_Spring_2024_B;
 
 import java.util.ArrayDeque;
+import java.util.Objects;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -85,7 +86,69 @@ public class Main {
             O(n)
             מכיוון שעוברים פעם יחידה על כל איבר במחסנית
          */
+
+        // ex7c
+        /*
+            a) O(n)
+            b) O(n)
+         */
+
+        // ex9c
+        /*
+            a) O(n)
+            b) O(n^2)
+         */
+
+        // ex11c
+        /*
+            (1) O(n)
+            (2) O(n)
+                בסעיף השני, אמנם השתמשנו בכמה לולאות,
+                אבל הלולאה החיצונים היא לולאת for סופית (120 איטרציות בערך)
+                והלולאות הפנימיות באות זו אחר זו, לכן שומרות
+                על סיבוכיות O(n)
+         */
+
+        // ex12a
+        /*
+            x = 10
+            head -> {3, -1, 7, 2}
+                head -> {-1, 7, 2}
+                    head -> {7, 2}
+                        head -> {2}
+                            head -> {}
+                                head -> {10}
+                            head -> {2, 10}
+                        head -> {7, 2, 10}
+                    head -> {-1, 7, 2, 10}
+                head -> {3, -1, 7, 2, 10}
+
+            Final: head -> {3, -1, 7, 2, 10}
+         */
+        // ex12e
+        /*
+            s                   x   y   x%y!=0
+            {3,6,14,2,6,3,1}
+            {6,14,2,6,3}        3   1   false
+            {14,2,6}            6   3   false
+            {2}                 14  6   true    -> return false
+
+            Return: false
+
+         */
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -247,4 +310,97 @@ public class Main {
         return true;
     }
 
+    // ex7b
+    public static Node<Integer> buildFibonacci(int num){
+        if (num == 0)
+            return null;
+
+        Node<Integer> chain = new Node<>(1);
+        if (num == 1)
+            return chain;
+
+        Node<Integer> pre = chain;
+        Node<Integer> after = new Node<Integer>(1);
+        chain.setNext(after);
+        if (num == 2)
+            return chain;
+
+        for (int i = 2; i < num; i++) {
+            after.setNext(new Node<>(pre.getValue() + after.getValue()));
+            pre = pre.getNext();
+            after = after.getNext();
+        }
+        return chain;
+    }
+
+
+    public static boolean isDownTree(BinNode<Integer> root){
+        // אם הצומת null - מתאים לעץ ריק או לעלה
+        if (root == null)
+            return true;
+        // אם יש רק ילד אחד
+        if (root.hasLeft() && !root.hasRight() ||
+                !root.hasLeft() && root.hasRight())
+            return false;
+        // אם אחד מהילדים גדול מהאבא
+        if (root.getLeft().getValue() > root.getValue() ||
+                root.getRight().getValue() > root.getValue())
+            return false;
+
+        return isDownTree(root.getLeft()) && isDownTree(root.getRight());
+    }
+
+    // ex9a
+    public static int maxDiff(Queue<Integer> q){
+        int small = q.peek();
+        int big = q.remove();
+        while (!q.isEmpty()){
+            int temp = q.remove();
+            if (temp > big)
+                big = temp;
+            if (temp < small)
+                small = temp;
+        }
+        return big - small;
+    }
+    // ex9b
+    public static boolean existDiff(Queue<Integer> q, int num){
+        Queue<Integer> helper = new ArrayDeque<>();
+        while (!q.isEmpty()){
+            // נוציא איבר ראשון אל תוך משתנה
+            int anchor = q.remove();
+            // נבדוק איבר ראשון מול כל השאר
+            // ועל הדרך נשמור את כל השאר בתור עזר
+            while (!q.isEmpty()){
+                if (anchor - q.peek() == num ||
+                        q.peek() - anchor == num)
+                    return true;
+                helper.add(q.remove());
+            }
+            // מחזירים איברים ללא הראשון (!!)
+            // אל התור המקורי, כדי להתחיל מהתחלה
+            while (!helper.isEmpty())
+                q.add(helper.remove());
+        }
+        return false;
+    }
+
+    // ex10b
+    public static Two[] buildTwos(One[] ones){
+        int count = 0;
+        for (int i = 0; i < ones.length; i++) {
+            if (ones[i] instanceof Two)
+                count++;
+        }
+
+        if (count == 0)
+            return null;
+        int idx = 0;
+        Two[] twos = new Two[count];
+        for (int i = 0; i < ones.length; i++) {
+            if (ones[i] instanceof Two)
+                twos[idx++] = (Two) ones[i];
+        }
+        return twos;
+    }
 }
