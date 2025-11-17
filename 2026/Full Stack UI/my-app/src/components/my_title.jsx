@@ -1,6 +1,4 @@
-export default function MyTitle(){
+export default function MyTitle(props){
 
-    const text = "Welcome To Your App";
-
-    return <h1> {text} </h1>;
+    return <h1 style={ {backgroundColor: props.color} }> {props.text} </h1>;
 }
