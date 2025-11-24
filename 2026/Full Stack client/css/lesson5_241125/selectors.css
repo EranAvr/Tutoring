@@ -1,0 +1,50 @@
+body{
+    background-color: antiquewhite;
+}
+
+#main_p{
+    background-color: aqua;
+    height: 100px;
+    overflow-y: hidden;
+}
+
+.important_words{
+    width: 500px;
+    font-weight: 800;
+    font-size: 15px;
+    color: red;
+    text-align: center;
+}
+
+div.important_words{
+    color: chartreuse;
+}
+
+div p span{
+    color: blueviolet;
+}
+div div span{
+    color: blue;
+}
+
+.div_with_titles > h1 {
+    color: chartreuse;
+}
+
+li:first-child{
+    font-weight: bolder;
+}
+li:last-child{
+    text-decoration: underline;
+}
+
+tr:nth-child(odd){
+    background-color: cornflowerblue;
+}
+tr:nth-child(even){
+    background-color: rgb(35, 52, 83);
+}
+
+input[type="password"]{
+    color: coral;
+}
