@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .container {
+            background-color: antiquewhite;
+            display: flex;
+        }
+        .container > div{
+            width: 100px;
+            height: 100px;
+            font-size: 50px;
+            line-height: 100px;
+            text-align: center;
+            background-color: aqua;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Default (row) direction</h2>
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <h2>Column direction</h2>
+    <div class="container" style="flex-direction: column;">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <h2>Row-reverse direction</h2>
+    <div class="container" style="flex-direction: row-reverse;">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <h2>Column-reverse direction</h2>
+    <div class="container" style="flex-direction: column-reverse;">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <hr>
+    <h2>Flex wrap</h2>
+    <div class="container" style="flex-wrap: wrap;">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+    <h2>Flex wrap-reverse</h2>
+    <div class="container" style="flex-wrap: wrap-reverse;">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+    <hr>
+    <h1>Justify and Align</h1>
+    <h2>Default (row) + justify center</h2>
+    <div class="container" style="justify-content: center;">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <h2>Default (row) + justify end</h2>
+    <div class="container" style="justify-content: end;">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <h2>Default (row) + justify space-around</h2>
+    <div class="container" style="justify-content: space-around;">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <h2>Default (row) + justify space-between</h2>
+    <div class="container" style="justify-content: space-between;">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <h2>Default (row) + justify space-evenly</h2>
+    <div class="container" style="justify-content: space-evenly;">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+
+</body>
+</html>
