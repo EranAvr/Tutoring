@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            position: absolute;
+            animation-name: example;
+            animation-duration: 5s;
+            animation-iteration-count: 3;
+        }
+        @keyframes example {
+            0% {
+                background-color: red;
+                top: 0px;
+                left: 0px;
+            }
+            50% {
+                background-color: blue;
+                top: 400px;
+                left: 400px;
+                transform: scale(200%);
+            }
+            100% {
+                background-color: red;
+                top: 0px;
+                left: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

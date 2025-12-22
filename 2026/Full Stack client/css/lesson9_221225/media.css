@@ -1,0 +1,33 @@
+
+body {
+        background-color: rgb(230, 230, 255);
+    }
+.container {
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+    grid-template-rows: 50vh 50vh;
+}
+.container > img {
+    width: 400px;
+}
+
+
+
+@media screen and (max-width: 992px){
+    body {
+        background-color: burlywood;
+    }
+}
+
+@media screen and (max-width: 600px){
+    body {
+        background-color: aquamarine;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .container > img {
+        width: 100vw;
+    }
+}
