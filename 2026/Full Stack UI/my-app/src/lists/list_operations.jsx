@@ -11,9 +11,11 @@ export default function TodoList(){
 
     const [todos, setTodos] = useState(initData);
     const [newTaskText, setNewTaskText] = useState("");
-    const [updateText, setUpdateText] = useState("");
 
+    const [updateText, setUpdateText] = useState("");
     const [idToUpdate, setIdToUpdate] = useState(null);
+
+    const [finished, setFinished] = useState([]);
 
     return(
         <div style={myStyle}>
@@ -26,30 +28,55 @@ export default function TodoList(){
                         {id: ID++, desc: newTaskText, completed: false}
                     ]);
                     setNewTaskText("");
-                }}>Add</button> 
-                <br />
-                <input value={updateText} type="text" placeholder="Enter new task" 
-                    onChange={({target})=>{setUpdateText(target.value)}}/>
+                }}>Add</button>
                 
             </div>
             <hr />
+            <div>
             {
                 todos.map((value, index) => 
                     <div key={index}>
                         {
                             idToUpdate === value.id
                             ?
-                            <input value={updateText} type="text" placeholder="Enter new task" 
+                            <input value={updateText} type="text" placeholder="Enter new task"
                             onChange={({target})=>{setUpdateText(target.value)}}/>
                             :
-                        `#${value.id} Task: ${value.desc} | Completed: ${value.completed ? "V" : "X"}`
+                            <>
+                                {`#${value.id} Task: ${value.desc} | Completed:`}
+                                <span onClick={()=>{
+                                    const newTodos = todos.map(v => {
+                                        if (v.id === value.id){
+                                            return {...v, completed: !value.completed}
+                                        } else {
+                                            return v;
+                                        }
+                                    });
+                                    setTodos(newTodos);
+
+                                    setFinished(
+                                        [...finished, value]
+                                    );
+                                }}>{value.completed ? '✅' : '❌'}</span>
+                            </>
+                            
                         }
                         
                         {
                             idToUpdate === value.id
                             ?
                             <button onClick={()=>{
-                                
+                                const newTodos = todos.map(v => {
+                                    if (v.id === idToUpdate){
+                                        //return {id: v.id, desc: updateText, completed: v.completed}
+                                        return {...v, desc: updateText}
+                                    } else {
+                                        return v;
+                                    }
+                                });
+                                setTodos(newTodos);
+                                setIdToUpdate(null);
+                                setUpdateText("");
                             }}>save</button>
                             :
                             <button onClick={()=>{
@@ -61,7 +88,8 @@ export default function TodoList(){
                                 });
                                 setTodos(newList);
                                 setUpdateText("");*/
-                                setIdToUpdate(value.id)
+                                setIdToUpdate(value.id);
+                                setUpdateText(value.desc);
                             }}>update</button>
                         }
                         
@@ -73,6 +101,17 @@ export default function TodoList(){
                     </div>
                 )
             }
+            </div>
+            <hr />
+            <div>
+                {
+                    finished.map((value, index) => 
+                        <div key={index}>
+                            {`#${value.id} Task: ${value.desc} | Completed: ${value.completed}`}
+                        </div>
+                    )
+                }
+            </div>
         </div>
     );
 }
