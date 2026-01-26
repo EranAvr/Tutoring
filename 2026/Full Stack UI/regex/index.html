@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const str = "The fox runs in the field";
+        const re = /fox/;
+
+        console.log(re.test(str));
+        console.log(/Fox/.test(str));
+
+        console.log(str.search(re));
+
+        console.log(str.replace(re, "elephant"));
+
+        const str2 = "The fox runs in the field with another fox";
+        console.log(str2.match(re));
+        
+
+
+        const str3 = "All you need is love";
+        const r3 = /y../;
+        console.log(str3.search(r3));
+
+        const str4 = "The cat cut some cit";
+        const r4 = /c.t/g;
+        console.log([...str4.matchAll(r4)]);
+
+
+        const str5 = "y yo yoo yoooo";
+        const r5 = /yo+/g;
+        console.log([...str5.matchAll(r5)]);
+
+
+        const str6 = "abc.txt dfg.c f.pdf ggg.pdf main.c";
+        const r6 = /[a-z]+\.pdf/g;
+        console.log([...str6.matchAll(r6)]);
+        
+    </script>
+</body>
+</html>
