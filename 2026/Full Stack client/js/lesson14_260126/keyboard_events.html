@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="texty">
+        Lorem ipsum dolor sit amet, <br>
+        consectetur adipisicing elit. <br>
+        Suscipit eaque dignissimos sunt! <br>
+        Nihil minus, eum, dolorum autem <br>
+        temporibus illum iure cumque <br>
+        exercitationem adipisci consectetur <br>
+        facilis accusantium in aperiam <br>
+        blanditiis quaerat. <br>
+    </div>
+    <hr>
+    <ul id="keys_container">
+
+    </ul>
+
+
+
+
+    <script>
+        const container = document.getElementById("keys_container");
+        const textContainer = document.getElementById("texty");
+
+        window.addEventListener("keydown", function(e){
+            console.log(e);
+            // הוספת תוכן דינאמי של פריטי רשימה
+            const element = document.createElement("li");
+            element.innerText = `key=${e.key} | code=${e.code}`;
+            container.append(element);
+
+            // זיהוי של שילוב כפתורים
+            // ctrl + B
+            if(e.ctrlKey && e.code=="KeyB"){
+                if (textContainer.style.fontWeight == "bold")
+                    textContainer.style.fontWeight = "normal";
+                else
+                    textContainer.style.fontWeight = "bold";
+            }
+        })
+    </script>
+</body>
+</html>

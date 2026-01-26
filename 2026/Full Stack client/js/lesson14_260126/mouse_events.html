@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .day{
+            background-color: azure;
+            color: rgb(39, 0, 0);
+        }
+        .night{
+            background-color: rgb(0, 0, 87);
+            color: rgb(179, 255, 229);
+        }
+    </style>
+</head>
+<body class="day">
+    <nav>
+        <button id="btn_theme">change theme</button>
+    </nav>
+
+    <h1 id="main_title">Page Title</h1>
+
+    <img id="right_click_img" src="https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg" alt="">
+
+    <hr>
+
+    <img id="wheel_img" src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="">
+
+
+
+
+
+
+
+
+    <script>
+        (function(){
+            //document.body.className = "day";
+            document.getElementById("btn_theme").innerText = "change to night";
+        })();
+
+
+        const mainTitle = document.getElementById("main_title");
+
+        mainTitle.addEventListener("click", function(){
+            //alert("h1 title was clicked");
+            mainTitle.innerText = "Yo Ho!";
+        });
+
+
+        // פנייה לתגית כפתור
+        const btnTheme = document.getElementById("btn_theme");
+        // הגדרת אירוע לחיצה
+        btnTheme.addEventListener("click", function(){
+            if(document.body.className == "day"){
+                document.body.className = "night";
+                btnTheme.innerText = "change to day";
+            } else {
+                document.body.className = "day";
+                btnTheme.innerText = "change to night";
+            }
+                
+        });
+
+
+        // פנייה לתגית תמונה
+        const rightClickImg = document.getElementById("right_click_img");
+        rightClickImg.addEventListener("contextmenu", function(e){
+            e.preventDefault(); // ביטול התנהגות ברירת המחדל של האירוע
+            
+            console.log(e);
+            rightClickImg.width = 300;
+        });
+
+
+        // אירוע גלגלת על תמונה
+        const wheelImg = document.getElementById("wheel_img");
+        wheelImg.addEventListener("wheel", function(e){
+            e.preventDefault();
+            /*
+                גלגול כלפי מעלה (התקרבות) - ערך שלילי
+                כלפי מטה (התרחקות) - ערך חיובי
+            */
+            console.log(e.deltaY);
+            if (e.deltaY > 0)
+                wheelImg.width -= 10;
+            else 
+                wheelImg.width += 10;
+        });
+        wheelImg.addEventListener("auxclick", function(e){
+            e.preventDefault();
+            if (e.button == 1)
+                wheelImg.width = 1000;
+        })
+
+    </script>
+</body>
+</html>

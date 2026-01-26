@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Form World</h1>
+    <form id="my_form">
+        <input type="text" name="fname" placeholder="First name"> <br>
+        <input type="text" name="lname" placeholder="Last name"> <br>
+        <input type="number" name="age"> <br>
+
+        <button type="submit">Submit</button>
+    </form>
+    
+
+    <script>
+        //const form = document.getElementById("my_form");
+        const form = document.forms[0];
+        form.addEventListener("submit", function(e){
+            // ביטול רענון דף שלא נאבד את המידע
+            e.preventDefault();
+            // בניית אובייקט מידע עם תוכן הטופס
+            const data = new FormData(form);
+            console.log(data.get("fname"));
+            console.log(data.get("age"));
+
+            // פה נעשה פעולה על המידע שנאסף
+            // שליחה לשרת, שינויים בדף, שמירת קובץ במחשב וכו
+            
+        });
+    </script>
+</body>
+</html>
