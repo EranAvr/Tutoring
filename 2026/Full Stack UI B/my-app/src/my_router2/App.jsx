@@ -5,6 +5,9 @@ import SportPage from './my_router2/sport_page';
 import UserDetails from './my_router2/user_details';
 import SearchPage from './my_router2/search_page';
 
+import ProtectedRoute from './my_router2/protected_route';
+import { useState } from 'react';
+
 
 /*
 
@@ -20,6 +23,8 @@ import SearchPage from './my_router2/search_page';
 */
 function App() {
 
+  const [user, setUser] = useState(null);
+
   return(
     <>
       <BrowserRouter>
@@ -29,6 +34,10 @@ function App() {
           <Link to='/sport' >Sport</Link> |
           <Link to='/user/guest' >User</Link> |
           <Link to='/search' >Search</Link> |
+          <Link to='/settings' >Settings</Link> |
+          <button onClick={() => setUser("My Name")}>Login</button>
+          <button onClick={() => setUser(null)}>Logout</button>
+          <span>User: {user}</span>
         </nav>
 
         <Routes>
@@ -50,6 +59,11 @@ function App() {
 
           {/* Query parameters */}
           <Route path='/search' element={<SearchPage/>}/>
+
+          {/* Protected route */}
+          <Route path='/settings' element={<ProtectedRoute user={user}>
+            <h2>Settings page - only for logged in users</h2>
+          </ProtectedRoute>}/>
           
           <Route path='*' element={<h1>Error 404!</h1>}/>
         </Routes>
