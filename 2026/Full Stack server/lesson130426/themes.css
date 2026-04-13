@@ -1,0 +1,9 @@
+.light{
+    color: rgb(53, 49, 75);
+    background-color: aliceblue;
+}
+
+.dark{
+    color: rgb(255, 166, 103);
+    background-color: rgb(56, 58, 61);
+}
