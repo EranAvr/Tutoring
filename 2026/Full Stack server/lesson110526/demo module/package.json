@@ -1,0 +1,14 @@
+{
+  "name": "earn-avraham-demo-module-publish-test",
+  "version": "1.0.0",
+  "description": "A demo test for publishing a module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eran Avraham",
+  "license": "ISC",
+  "dependencies": {
+    "earn-avraham-demo-module-publish-test": "^1.0.0"
+  }
+}
