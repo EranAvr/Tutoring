@@ -3,6 +3,10 @@ import './App.css'
 import { Comp1, Comp2, Comp3, LeafCompTest } from './context_api/demo_comps';
 import ThemeContext from './context_api/theme_context';
 
+import { useUser, UserProvider } from './context_api/user_context_module';
+import { PlaylistManager } from './context_api/playlist_comps';
+import { PlaylistProvider } from './context_api/playlist_context_with_reducer';
+
 
 const styles = {
   light: {
@@ -15,24 +19,48 @@ const styles = {
   }
 }
 
+
+function MyNavbar(){
+  const curUser = useUser();
+
+  return(
+    <nav>
+      { console.log(useUser()) }
+      <button onClick={curUser.toggleUser}> {curUser.user ?? "disconnected"} </button>
+    </nav>
+  );
+}
+
 function App() {
   const [theme, setTheme] = useState("light");
 
   return(
     <>
     <ThemeContext.Provider value={{theme, setTheme}}>
-      <Comp1>
-        <nav>
-          <button onClick={()=>{setTheme(theme==='light' ? 'dark' : 'light')}}>Change theme</button>
-        </nav>
-        <Comp2>
-          <Comp3>
+      <UserProvider>
 
-            <LeafCompTest />
+        <Comp1>
+          <nav>
+            <button onClick={()=>{setTheme(theme==='light' ? 'dark' : 'light')}}>Change theme</button>
+          </nav>
+          <MyNavbar />
+          <Comp2>
+            <Comp3>
 
-          </Comp3>
-        </Comp2>
-      </Comp1>
+              <LeafCompTest />
+
+            </Comp3>
+          </Comp2>
+        </Comp1>
+
+        <hr />
+        <PlaylistProvider>
+
+          <PlaylistManager />
+          
+        </PlaylistProvider>
+
+      </UserProvider>
     </ThemeContext.Provider>
     </>
   );

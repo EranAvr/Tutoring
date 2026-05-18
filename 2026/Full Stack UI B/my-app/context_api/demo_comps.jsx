@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import ThemeContext from "./theme_context";
 
+
 export function Comp1({children}){
     return(
         <div className={useContext(ThemeContext).theme}>
