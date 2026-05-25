@@ -1,0 +1,23 @@
+const myTransform = new Transform({
+    transform(chunk, encoding, callback){
+        
+        //... enter your code here ...
+
+        callback(null, chunk.toString().toUpperCase());
+    }
+});
+
+
+1) בניית טרנספורם שכותב אל ה-console.log
+כל צ'אנק של דאטה שעבר דרכו
+
+2) בניית טרנספורם שכותב אל הקובץ log.txt
+כל צ'אנק של דאטה שעבר דרכו בפורמט הבא:
+<timestamp> <data chunk>
+
+3) בניית טרנספורם שמבצע הצפנה עפ"י צופן-קיסר
+של הזזה אחת (!!)
+כלומר, כל אות לועזית שבקלט תוזז אות אחת למעלה.
+לשים לב למקרה הקצה של האות z.
+
+4) בניית טרנספורם המפענח את הצופן מסעיף 3
