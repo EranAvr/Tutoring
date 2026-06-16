@@ -50,6 +50,28 @@ public class Main {
         int[] a = new int[10];
         fill(a, 10, 20);
 
+        // ex7
+        int[] arr = {123, 321, 114, 5, 231};
+        System.out.println( isItBrothers(arr) );
+        int[] arr2 = {123, 321, 114, 501, 231};
+        System.out.println( isItBrothers(arr2) );
+
+
+        // ex10
+        // a1) [2,2,2,2,2,5]
+        // a2)  הפעולה מחפשת את הערך x החל באינדקס k ומעלה
+        //      אם מצאה- תחזיר אינדקס, אם לא מצאה- תחזיר -1
+        // b)
+        /*
+            הפעולה בודקת שכל המספרים מהמערך b נמצאים גם במערך a
+            ושומרים על הסדר היחסי המקורי ביניהם
+            זימון הפעולה יחזיר false
+         */
+        // c)
+        /*
+            שתי הפונ' מוודאות שכל המספרים מהמערך b נמצאות גם במערך a,
+            והסדר היחסי בין המספרים נשמר.
+         */
     }
 
     // ex3a
@@ -98,5 +120,71 @@ public class Main {
         for (int i = 1; i < arr.length; i+=2) { // מספרים קטנים
             arr[i] = rnd.nextInt(a, mid);
         }
+    }
+
+    // ex7a
+    public static boolean isItBrothers(int num1, int num2){
+        int c1=0, s1=0;
+        int c2=0, s2=0;
+
+        while(num1 > 0){
+            c1++;
+            s1 += num1 % 10;
+            num1 /= 10;
+        }
+
+        while(num2 > 0){
+            c2++;
+            s2 += num2 % 10;
+            num2 /= 10;
+        }
+
+        return c1==c2 && s1==s2;
+    }
+    // ex7b
+    /*public static boolean isItBrothers(int[] arr){
+        for (int i = 0; i < arr.length; i++) {  // לכל מספר שנבדק
+            for (int j = i+1; j < arr.length; j++) {    // לכל המספרים שמולו
+                if( !isItBrothers(arr[i], arr[j]) ){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }*/
+    // better solution:
+    public static boolean isItBrothers(int[] arr){
+        for (int i = 0; i < arr.length-1; i++) {  // לכל מספר שנבדק
+            if( !isItBrothers(arr[i], arr[i+1]) )
+                return false;
+        }
+        return true;
+    }
+
+
+    // ex7c
+    /*
+        a) O(n)
+        b) O(n^2)
+            ניתן להוריד לסיבוכיות O(n)
+     */
+
+    // ex9c
+    public static void printByMonth(Worker[] arr, int month){
+        for (int i = 0; i < arr.length; i++) {  // נרוץ על כל העובדים
+            if (arr[i].getBirthday().getMonth() == month){  // נפנה לחודש של תאריך יום-הולדת של עובד
+                System.out.println(arr[i].getName());   // נדפיס את השם
+            }
+        }
+    }
+
+    // ex9d
+    public static String youngest(Worker[] arr){
+        Worker youngest = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (youngest.getBirthday().after( arr[i].getBirthday()))
+                youngest = arr[i];
+        }
+        return youngest.getName();
     }
 }
