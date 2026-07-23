@@ -13,13 +13,13 @@ public class Car {
         this.brand = "car";
         this.speed = 0;
         this.fuel = 100;
-        this.engine = new Engine();
+        this.engine = null;
     }
-    public Car(String brand){
+    public Car(String brand, Engine engine){
         this.brand = brand;
         this.speed = 0;
         this.fuel = 100;
-        this.engine = new Engine();
+        this.engine = engine;
     }
 
     public String getBrand() {
@@ -44,6 +44,14 @@ public class Car {
 
     public void setFuel(int fuel) {
         this.fuel = fuel;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
     }
 
     // Methods:

@@ -9,6 +9,20 @@ public class Engine {
     private boolean isTurbo;
     private Date lastCare;
 
+    public Engine() {
+        this.volume = 0;
+        this.type = "";
+        this.isTurbo = false;
+        this.lastCare = null;
+    }
+
+    public Engine(int volume, String type, boolean isTurbo, Date lastCare) {
+        this.volume = volume;
+        this.type = type;
+        this.isTurbo = isTurbo;
+        this.lastCare = lastCare;
+    }
+
     public int getVolume() {
         return volume;
     }
@@ -39,5 +53,15 @@ public class Engine {
 
     public void setLastCare(Date lastCare) {
         this.lastCare = lastCare;
+    }
+
+    @Override
+    public String toString() {
+        return "Engine{" +
+                "volume=" + volume +
+                ", type='" + type + '\'' +
+                ", isTurbo=" + isTurbo +
+                ", lastCare=" + lastCare +
+                '}';
     }
 }
